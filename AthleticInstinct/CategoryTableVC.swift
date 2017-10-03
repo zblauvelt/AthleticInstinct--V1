@@ -10,6 +10,8 @@ import UIKit
 
 class CategoryTableVC: UITableViewController {
 
+    var categories = ["10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes", "Kettlebells", "Battle Ropes", "Bodyweight"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,23 +31,27 @@ class CategoryTableVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return categories.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "CategoryCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryCell
 
         // Configure the cell...
+        cell.CategoryNameLabel.text = categories[indexPath.row]
+        cell.CategoryImage.image = UIImage(named: "SignInBackground.jpeg")
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
