@@ -13,15 +13,18 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var CategoryImage: UIImageView!
     @IBOutlet weak var CategoryNameLabel: UILabel!
     
+    var category: WorkOutCategory!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func configureCell(category: WorkOutCategory) {
+        self.category = category
+        self.CategoryNameLabel.text = category.name.uppercased()
+        self.CategoryImage.image = UIImage(named: category.image)
+        
     }
 
 }
