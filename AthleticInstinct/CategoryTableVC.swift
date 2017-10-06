@@ -13,10 +13,6 @@ class CategoryTableVC: UITableViewController {
     
     var categories = [WorkOutCategory]()
     
-    //var workOutCategory: WorkOutCategory!
-
-    //var categories = ["10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes", "Kettlebells", "Battle Ropes", "Bodyweight"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         DataService.ds.REF_CATEGORY.observe(.value, with: { (snapshot) in
@@ -62,7 +58,6 @@ class CategoryTableVC: UITableViewController {
         }
     }
     
-
 
 
 }

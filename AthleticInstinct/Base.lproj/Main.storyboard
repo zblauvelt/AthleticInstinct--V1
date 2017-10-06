@@ -180,6 +180,7 @@
                                 <connections>
                                     <outlet property="CategoryImage" destination="XO9-IT-jqX" id="O3i-hz-npz"/>
                                     <outlet property="CategoryNameLabel" destination="41c-Kx-Ctj" id="1Md-Uj-Fxc"/>
+                                    <segue destination="PeQ-rd-5eT" kind="show" id="HFs-6r-0zD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -189,18 +190,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Category" id="Py0-Bg-M9Y"/>
-                    <connections>
-                        <segue destination="PeQ-rd-5eT" kind="show" identifier="goToWorkOuts" id="U6a-LL-TU8"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeY-mg-ep0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1802.8985507246377" y="33.423913043478265"/>
         </scene>
-        <!--View Controller-->
+        <!--Work Out ListVC-->
         <scene sceneID="TWt-CK-eGs">
             <objects>
-                <viewController id="PeQ-rd-5eT" sceneMemberID="viewController">
+                <viewController id="PeQ-rd-5eT" customClass="WorkOutListVC" customModule="AthleticInstinct" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ubM-53-wUi"/>
                         <viewControllerLayoutGuide type="bottom" id="Xfa-HO-VqE"/>
@@ -210,7 +208,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vmT-B1-IyW">
-                                <rect key="frame" x="20" y="64" width="374" height="45"/>
+                                <rect key="frame" x="20" y="20" width="374" height="45"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQR-Og-eDz" customClass="FancyButton" customModule="AthleticInstinct" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="187" height="45"/>
@@ -231,30 +229,12 @@
                                     <constraint firstAttribute="height" constant="45" id="pXe-o9-jgh"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LJF-Uq-4Hk">
-                                <rect key="frame" x="0.0" y="109" width="414" height="627"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workOutListCell" id="Ajg-j7-GhS">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ajg-j7-GhS" id="Rbc-Eg-Kgv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xfa-HO-VqE" firstAttribute="top" secondItem="LJF-Uq-4Hk" secondAttribute="bottom" id="3Rt-dC-Phs"/>
                             <constraint firstItem="vmT-B1-IyW" firstAttribute="top" secondItem="ubM-53-wUi" secondAttribute="bottom" id="4HC-ct-8ge"/>
-                            <constraint firstAttribute="trailing" secondItem="LJF-Uq-4Hk" secondAttribute="trailing" id="AJx-kD-dCu"/>
                             <constraint firstItem="vmT-B1-IyW" firstAttribute="leading" secondItem="fSU-AF-Evi" secondAttribute="leadingMargin" id="Pwf-Ny-Leh"/>
-                            <constraint firstItem="LJF-Uq-4Hk" firstAttribute="leading" secondItem="fSU-AF-Evi" secondAttribute="leading" id="Yuu-8k-DLw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vmT-B1-IyW" secondAttribute="trailing" id="hZO-ZG-cWH"/>
-                            <constraint firstItem="LJF-Uq-4Hk" firstAttribute="top" secondItem="vmT-B1-IyW" secondAttribute="bottom" id="vmn-Ip-J51"/>
                         </constraints>
                     </view>
                 </viewController>
