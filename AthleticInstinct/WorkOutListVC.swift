@@ -10,7 +10,7 @@ import UIKit
 
 class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var categoryPicked = ""
+    var categoryPicked: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
