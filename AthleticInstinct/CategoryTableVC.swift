@@ -58,6 +58,15 @@ class CategoryTableVC: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "categoryDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! WorkOutListVC
+                destinationController.categoryPicked = categories[indexPath.row].name
+            }
+        }
+    }
+    
 
 
 }
