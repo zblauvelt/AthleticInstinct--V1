@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+//Model for Category tableView
 class WorkOutCategory {
     private var _name: String!
     private var _image: String!
@@ -52,4 +52,30 @@ class WorkOutCategory {
         }
         
     }
+    
+    //Model for List of workouts in a certain category
+    
+    class CategoryDetail {
+        private var _name: String!
+        private var _image: String!
+        private var _level: String!
+        private var _duration: String!
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
