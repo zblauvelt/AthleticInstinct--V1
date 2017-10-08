@@ -12,6 +12,8 @@
 		140B48021F844AC700432B17 /* Workouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48011F844AC700432B17 /* Workouts.swift */; };
 		140B48051F845BAC00432B17 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48041F845BAC00432B17 /* DataService.swift */; };
 		140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48061F86F9A000432B17 /* WorkOutListVC.swift */; };
+		140B480B1F897FC500432B17 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B480A1F897FC500432B17 /* CategoryDetails.swift */; };
+		140B480D1F89842A00432B17 /* WorkOutListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B480C1F89842A00432B17 /* WorkOutListCell.swift */; };
 		14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B771F79C50F004636E7 /* AppDelegate.swift */; };
 		14B39B7A1F79C50F004636E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B791F79C50F004636E7 /* ViewController.swift */; };
 		14B39B7D1F79C50F004636E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B39B7B1F79C50F004636E7 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		140B48011F844AC700432B17 /* Workouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workouts.swift; sourceTree = "<group>"; };
 		140B48041F845BAC00432B17 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		140B48061F86F9A000432B17 /* WorkOutListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutListVC.swift; sourceTree = "<group>"; };
+		140B480A1F897FC500432B17 /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
+		140B480C1F89842A00432B17 /* WorkOutListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutListCell.swift; sourceTree = "<group>"; };
 		14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.debug.xcconfig"; sourceTree = "<group>"; };
 		14B39B741F79C50F004636E7 /* AthleticInstinct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticInstinct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B39B771F79C50F004636E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				140B48011F844AC700432B17 /* Workouts.swift */,
+				140B480A1F897FC500432B17 /* CategoryDetails.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				140B47FC1F83231500432B17 /* CategoryTableVC.swift */,
 				140B47FE1F83254100432B17 /* CategoryCell.swift */,
 				140B48061F86F9A000432B17 /* WorkOutListVC.swift */,
+				140B480C1F89842A00432B17 /* WorkOutListCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -283,11 +289,13 @@
 				140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */,
 				140B48051F845BAC00432B17 /* DataService.swift in Sources */,
 				14B39B8D1F7C758C004636E7 /* FancyButton.swift in Sources */,
+				140B480D1F89842A00432B17 /* WorkOutListCell.swift in Sources */,
 				140B47FD1F83231500432B17 /* CategoryTableVC.swift in Sources */,
 				14B39B7A1F79C50F004636E7 /* ViewController.swift in Sources */,
 				140B47FF1F83254100432B17 /* CategoryCell.swift in Sources */,
 				14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */,
 				14B39B901F7C75E3004636E7 /* Constants.swift in Sources */,
+				140B480B1F897FC500432B17 /* CategoryDetails.swift in Sources */,
 				14B39B931F7C790B004636E7 /* SignInVC.swift in Sources */,
 				140B48021F844AC700432B17 /* Workouts.swift in Sources */,
 			);
