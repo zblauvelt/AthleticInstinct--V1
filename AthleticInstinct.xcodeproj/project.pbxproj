@@ -14,6 +14,8 @@
 		140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48061F86F9A000432B17 /* WorkOutListVC.swift */; };
 		140B480B1F897FC500432B17 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B480A1F897FC500432B17 /* CategoryDetails.swift */; };
 		140B480D1F89842A00432B17 /* WorkOutListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B480C1F89842A00432B17 /* WorkOutListCell.swift */; };
+		140B480F1F8BADE300432B17 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B480E1F8BADE300432B17 /* RoundButton.swift */; };
+		140B48111F8BBB3900432B17 /* WorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */; };
 		14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B771F79C50F004636E7 /* AppDelegate.swift */; };
 		14B39B7A1F79C50F004636E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B791F79C50F004636E7 /* ViewController.swift */; };
 		14B39B7D1F79C50F004636E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B39B7B1F79C50F004636E7 /* Main.storyboard */; };
@@ -34,6 +36,8 @@
 		140B48061F86F9A000432B17 /* WorkOutListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutListVC.swift; sourceTree = "<group>"; };
 		140B480A1F897FC500432B17 /* CategoryDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 		140B480C1F89842A00432B17 /* WorkOutListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutListCell.swift; sourceTree = "<group>"; };
+		140B480E1F8BADE300432B17 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutDetailVC.swift; sourceTree = "<group>"; };
 		14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.debug.xcconfig"; sourceTree = "<group>"; };
 		14B39B741F79C50F004636E7 /* AthleticInstinct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticInstinct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B39B771F79C50F004636E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				14B39B8C1F7C758C004636E7 /* FancyButton.swift */,
+				140B480E1F8BADE300432B17 /* RoundButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				140B47FE1F83254100432B17 /* CategoryCell.swift */,
 				140B48061F86F9A000432B17 /* WorkOutListVC.swift */,
 				140B480C1F89842A00432B17 /* WorkOutListCell.swift */,
+				140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -291,7 +297,9 @@
 				14B39B8D1F7C758C004636E7 /* FancyButton.swift in Sources */,
 				140B480D1F89842A00432B17 /* WorkOutListCell.swift in Sources */,
 				140B47FD1F83231500432B17 /* CategoryTableVC.swift in Sources */,
+				140B48111F8BBB3900432B17 /* WorkOutDetailVC.swift in Sources */,
 				14B39B7A1F79C50F004636E7 /* ViewController.swift in Sources */,
+				140B480F1F8BADE300432B17 /* RoundButton.swift in Sources */,
 				140B47FF1F83254100432B17 /* CategoryCell.swift in Sources */,
 				14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */,
 				14B39B901F7C75E3004636E7 /* Constants.swift in Sources */,
