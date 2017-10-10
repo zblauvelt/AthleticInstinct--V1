@@ -55,6 +55,17 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return WorkOutListCell()
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToWorkOutDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! WorkOutDetailVC
+                destinationController.workOutSelectedKey = categoryDetailWorkOuts[indexPath.row].categoryPickedKey
+            }
+        }
+    }
+    
+    
 
 }
     

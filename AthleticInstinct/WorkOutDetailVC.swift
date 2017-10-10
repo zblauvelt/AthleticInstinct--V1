@@ -7,29 +7,72 @@
 //
 
 import UIKit
+import Firebase
 
-class WorkOutDetailVC: UIViewController {
+class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var workOutSelectedKey: String!
+    var exerciseDetail = [ExerciseDetail]()
+    
+    //Adjusting table height based on rows
+    /*override func viewDidAppear(_ animated: Bool) {
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+    }
+    
+    override func viewDidLayoutSubviews(){
+        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
+        tableView.reloadData()
+    }*/
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if let workoutSelected = workOutSelectedKey {
+            DataService.ds.REF_EXERCISES.child(workoutSelected).observe(.value, with: { (snapshot) in
+                if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    self.exerciseDetail.removeAll()
+                    for snap in snapshot {
+                        print("SNAP: \(snap)")
+                        if let exerciseData = snap.value as? Dictionary<String, String> {
+                            let key = snap.key
+                            let exercises = ExerciseDetail(workOutKey: key, exerciseData: exerciseData)
+                            self.exerciseDetail.append(exercises)
+                        }
+                    }
+                }
+                self.tableView.reloadData()
+            })
+   
+        }
+     
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return exerciseDetail.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let exerciseDetails = exerciseDetail[indexPath.row]
+        let cellIdentifier = "exerciseCell"
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WorkOutDetailCell {
+            cell.configureExerciseDetailCell(exerciseDetail: exerciseDetails)
+            return cell
+        } else {
+            return WorkOutDetailCell()
+        }
+        
+    }
+    
+    
+
+
 
 }

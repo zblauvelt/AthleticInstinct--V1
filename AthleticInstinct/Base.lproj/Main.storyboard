@@ -134,7 +134,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sdO-wc-XcS" id="Ywa-QO-2lu">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignInBackground" translatesAutoresizingMaskIntoConstraints="NO" id="XO9-IT-jqX">
@@ -215,7 +215,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pqP-v5-WO4" id="IX8-uR-O5q">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignInBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ifw-9n-7tw">
@@ -225,7 +225,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="apg-qn-RHv">
-                                                    <rect key="frame" x="56" y="26.5" width="28.5" height="48.5"/>
+                                                    <rect key="frame" x="56" y="25.5" width="28.5" height="48.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQp-id-Tuc">
                                                             <rect key="frame" x="0.0" y="0.0" width="28.5" height="25"/>
@@ -282,7 +282,7 @@
                                             <outlet property="levellabel" destination="0Hs-MK-Vyj" id="sOs-IA-k3c"/>
                                             <outlet property="workOutImage" destination="Ifw-9n-7tw" id="chF-Jz-fIx"/>
                                             <outlet property="workOutNameLabel" destination="MIq-Ku-Tyx" id="Z0d-Iu-zeU"/>
-                                            <segue destination="E5I-jK-O1B" kind="show" id="OQE-Oi-EOi"/>
+                                            <segue destination="E5I-jK-O1B" kind="show" identifier="goToWorkOutDetail" id="OQE-Oi-EOi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -308,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="2528.985507246377" y="32.608695652173914"/>
         </scene>
-        <!--View Controller-->
+        <!--Work Out DetailVC-->
         <scene sceneID="Q0A-FM-jHt">
             <objects>
-                <viewController id="E5I-jK-O1B" sceneMemberID="viewController">
+                <viewController id="E5I-jK-O1B" customClass="WorkOutDetailVC" customModule="AthleticInstinct" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GIJ-4r-Laq"/>
                         <viewControllerLayoutGuide type="bottom" id="6OW-Rq-TTg"/>
@@ -436,22 +436,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65l-2H-AyM">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65l-2H-AyM">
                                                 <rect key="frame" x="0.0" y="565" width="414" height="275"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="275" id="qmD-Kh-Cca"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" id="awQ-OY-4YU">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="exerciseCell" rowHeight="75" id="awQ-OY-4YU" customClass="WorkOutDetailCell" customModule="AthleticInstinct" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="414" height="75"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="awQ-OY-4YU" id="SlY-ps-upg">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="74.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="r7c-hU-lbg">
-                                                                    <rect key="frame" x="156.5" y="10" width="101" height="23.5"/>
+                                                                    <rect key="frame" x="58" y="25.5" width="101" height="23.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IR5-OV-XEN">
                                                                             <rect key="frame" x="0.0" y="0.0" width="20.5" height="23.5"/>
@@ -469,15 +469,23 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="r7c-hU-lbg" firstAttribute="leading" secondItem="SlY-ps-upg" secondAttribute="leadingMargin" constant="50" id="Pe0-GP-w33"/>
                                                                 <constraint firstItem="r7c-hU-lbg" firstAttribute="centerY" secondItem="SlY-ps-upg" secondAttribute="centerY" id="dtr-SL-7Ds"/>
-                                                                <constraint firstItem="r7c-hU-lbg" firstAttribute="centerX" secondItem="SlY-ps-upg" secondAttribute="centerX" id="fDC-gc-yN8"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="exerciseLabel" destination="wvS-UD-ahi" id="60K-N2-xHI"/>
+                                                            <outlet property="repsLabel" destination="IR5-OV-XEN" id="FUE-SC-YKB"/>
+                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="E5I-jK-O1B" id="Nma-ub-hC1"/>
+                                                    <outlet property="delegate" destination="E5I-jK-O1B" id="RaI-d8-AUy"/>
+                                                </connections>
                                             </tableView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-h2-VRe">
-                                                <rect key="frame" x="80" y="875" width="254" height="52"/>
+                                                <rect key="frame" x="80" y="860" width="254" height="52"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="254" id="K0H-Nf-hrN"/>
@@ -492,6 +500,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="65l-2H-AyM" firstAttribute="top" secondItem="wdG-8v-THt" secondAttribute="bottom" constant="8" id="00l-Nf-sT5"/>
+                                            <constraint firstItem="sv6-h2-VRe" firstAttribute="top" secondItem="65l-2H-AyM" secondAttribute="bottom" constant="20" id="34s-SO-7H8"/>
                                             <constraint firstItem="Ys7-wl-Mpv" firstAttribute="leading" secondItem="Z2G-P3-1Yc" secondAttribute="leading" constant="49" id="3Yb-Sy-3Cr"/>
                                             <constraint firstItem="sv6-h2-VRe" firstAttribute="centerX" secondItem="Z2G-P3-1Yc" secondAttribute="centerX" id="61e-Zc-Pf4"/>
                                             <constraint firstItem="Ys7-wl-Mpv" firstAttribute="top" secondItem="4Eh-Rt-6BD" secondAttribute="bottom" constant="2" id="DFe-fe-3Gf"/>
@@ -504,7 +513,6 @@
                                             <constraint firstAttribute="trailing" secondItem="65l-2H-AyM" secondAttribute="trailing" id="c3d-hf-YSX"/>
                                             <constraint firstAttribute="height" constant="1000" id="hbg-dH-CLb"/>
                                             <constraint firstItem="65l-2H-AyM" firstAttribute="leading" secondItem="Z2G-P3-1Yc" secondAttribute="leading" id="lzW-Y4-4Ir"/>
-                                            <constraint firstAttribute="bottom" secondItem="sv6-h2-VRe" secondAttribute="bottom" constant="73" id="m2p-6n-BBo"/>
                                             <constraint firstItem="js7-5q-IKE" firstAttribute="leading" secondItem="Z2G-P3-1Yc" secondAttribute="leading" constant="75" id="nON-l5-yOv"/>
                                             <constraint firstItem="wdG-8v-THt" firstAttribute="leading" secondItem="Z2G-P3-1Yc" secondAttribute="leading" constant="8" id="nmC-4O-KiC"/>
                                             <constraint firstAttribute="trailing" secondItem="c9s-Uj-EPL" secondAttribute="trailing" id="ntg-ua-vhL"/>
@@ -519,7 +527,7 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Z2G-P3-1Yc" secondAttribute="trailing" id="7Ak-uf-vWe"/>
                                     <constraint firstItem="Z2G-P3-1Yc" firstAttribute="leading" secondItem="u9M-QN-lDI" secondAttribute="leading" id="Afg-36-2Fw"/>
-                                    <constraint firstAttribute="bottom" secondItem="Z2G-P3-1Yc" secondAttribute="bottom" id="bBy-jG-yCB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z2G-P3-1Yc" secondAttribute="bottom" id="LLP-rW-Kih"/>
                                     <constraint firstItem="Z2G-P3-1Yc" firstAttribute="top" secondItem="u9M-QN-lDI" secondAttribute="top" id="xdT-1j-6Jq"/>
                                 </constraints>
                             </scrollView>
@@ -535,6 +543,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="tableView" destination="65l-2H-AyM" id="cyO-kd-8aq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aue-hS-l7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

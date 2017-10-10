@@ -19,6 +19,7 @@ class DataService {
     private var _REF_BASE = DB_BASE
     private var _REF_CATEGORY = DB_BASE.child("Category")
     private var _REF_CATEGORY_WORKOUTS = DB_BASE.child("workOuts")
+    private var _REF_EXERCISES = DB_BASE.child("workOutList")
     
     var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
@@ -30,6 +31,10 @@ class DataService {
     
     var REF_CATEGORY_WORKOUTS: FIRDatabaseReference {
         return _REF_CATEGORY_WORKOUTS
+    }
+    
+    var REF_EXERCISES: FIRDatabaseReference {
+        return _REF_EXERCISES
     }
     
     
