@@ -17,14 +17,14 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var exerciseDetail = [ExerciseDetail]()
     
     //Adjusting table height based on rows
-    /*override func viewDidAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
     }
     
     override func viewDidLayoutSubviews(){
         tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
         tableView.reloadData()
-    }*/
+    }
     
     
 
