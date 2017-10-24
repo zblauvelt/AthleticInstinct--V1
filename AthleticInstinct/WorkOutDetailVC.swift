@@ -12,7 +12,8 @@ import Firebase
 class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    
     
     var workOutSelectedKey: String!
     var exerciseDetail = [ExerciseDetail]()
