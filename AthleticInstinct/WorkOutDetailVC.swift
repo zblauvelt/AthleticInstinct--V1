@@ -12,28 +12,10 @@ import Firebase
 class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    
+
     
     var workOutSelectedKey: String!
     var exerciseDetail = [ExerciseDetail]()
-    
-    //Adjusting table height based on rows
-    override func viewDidAppear(_ animated: Bool) {
-        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
-        
-        
-
-    }
- 
-    override func viewDidLayoutSubviews(){
-        tableView.frame = CGRect(x: tableView.frame.origin.x, y: tableView.frame.origin.y, width: tableView.frame.size.width, height: tableView.contentSize.height)
-        tableView.reloadData()
-        
-
-        
-    }
-    
     
 
     override func viewDidLoad() {
@@ -52,10 +34,20 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     }
                 }
                 self.tableView.reloadData()
+                
+                //Adjusting table height based on rows
+                 func viewDidLayoutSubviews() {
+                    super.viewDidLayoutSubviews()
+                    let height = min(self.view.bounds.size.height, self.tableView.contentSize.height)
+                    self.tableViewHeightConstraint.constant = height
+                    self.view.layoutIfNeeded()
+                }
+                viewDidLayoutSubviews()
             })
    
         }
     }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -78,8 +70,6 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    
-
 
 
 }
