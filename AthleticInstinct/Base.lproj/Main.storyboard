@@ -418,15 +418,29 @@
                                                     <outlet property="delegate" destination="4sG-PW-L3H" id="hOX-ZY-wNa"/>
                                                 </connections>
                                             </tableView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cal-v0-mc9" customClass="RoundButton" customModule="AthleticInstinct" customModuleProvider="target">
+                                                <rect key="frame" x="120" y="227" width="80" height="80"/>
+                                                <color key="backgroundColor" red="0.29784687315102232" green="1" blue="0.24709926731927012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="UFA-Tg-oxh"/>
+                                                    <constraint firstAttribute="height" constant="80" id="bIe-Jd-UI6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="23"/>
+                                                <state key="normal" title="Start">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="rem-sw-XCK" firstAttribute="top" secondItem="nzO-MK-Uci" secondAttribute="bottom" constant="8" id="0wl-Wy-vxT"/>
                                             <constraint firstAttribute="trailing" secondItem="nzO-MK-Uci" secondAttribute="trailing" constant="8" id="1nc-XR-9Mx"/>
+                                            <constraint firstItem="nzO-MK-Uci" firstAttribute="top" secondItem="Cal-v0-mc9" secondAttribute="bottom" constant="31" id="9Sd-bi-QY3"/>
                                             <constraint firstAttribute="trailing" secondItem="o6O-VL-HMh" secondAttribute="trailing" id="TsG-hA-bSB"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rem-sw-XCK" secondAttribute="trailing" constant="185" id="Vb2-Z4-muW"/>
                                             <constraint firstItem="Jle-WG-mlU" firstAttribute="top" secondItem="aCh-T8-PUr" secondAttribute="bottom" constant="25" id="WgQ-HR-VTr"/>
                                             <constraint firstItem="rem-sw-XCK" firstAttribute="leading" secondItem="1Um-mx-ET6" secondAttribute="leading" constant="10" id="cFs-o4-pCB"/>
+                                            <constraint firstItem="Cal-v0-mc9" firstAttribute="centerX" secondItem="1Um-mx-ET6" secondAttribute="centerX" id="dKl-3e-VdR"/>
                                             <constraint firstAttribute="height" constant="1000" id="dng-Jp-v61"/>
                                             <constraint firstItem="o6O-VL-HMh" firstAttribute="top" secondItem="1Um-mx-ET6" secondAttribute="top" id="fqT-RX-X6M"/>
                                             <constraint firstItem="aCh-T8-PUr" firstAttribute="top" secondItem="rem-sw-XCK" secondAttribute="bottom" constant="25" id="gBg-dx-YlV"/>
@@ -465,7 +479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jya-ME-BAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3090" y="34"/>
+            <point key="canvasLocation" x="3090" y="33.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uf4-gm-yN5">
