@@ -197,7 +197,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeY-mg-ep0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="35"/>
+            <point key="canvasLocation" x="1558" y="34"/>
         </scene>
         <!--Work Out ListVC-->
         <scene sceneID="asN-U5-Dhb">
@@ -310,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcf-w5-Atz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1807" y="34"/>
+            <point key="canvasLocation" x="2295" y="34"/>
         </scene>
         <!--Work Out DetailVC-->
         <scene sceneID="vlA-6I-UGd">
@@ -460,11 +460,12 @@
                     <size key="freeformSize" width="320" height="830"/>
                     <connections>
                         <outlet property="tableView" destination="aCh-T8-PUr" id="g7s-fe-CY0"/>
+                        <outlet property="tableViewHeightConstraint" destination="j6Y-ma-SEM" id="gjs-Mh-JDC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jya-ME-BAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2552" y="35"/>
+            <point key="canvasLocation" x="3090" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uf4-gm-yN5">
@@ -482,7 +483,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Fa-S9-wuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="759" y="34"/>
+            <point key="canvasLocation" x="780" y="34"/>
         </scene>
     </scenes>
     <resources>

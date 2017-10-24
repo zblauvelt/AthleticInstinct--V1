@@ -12,14 +12,11 @@ import Firebase
 class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     var workOutSelectedKey: String!
     var exerciseDetail = [ExerciseDetail]()
     
-    //Adjusting table height based on rows
-
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         if let workoutSelected = workOutSelectedKey {
@@ -36,11 +33,21 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                     }
                 }
                 self.tableView.reloadData()
+                
+                //Adjusting table height based on rows
+                 func viewDidLayoutSubviews() {
+                    super.viewDidLayoutSubviews()
+                    let height = min(self.view.bounds.size.height, self.tableView.contentSize.height)
+                    self.tableViewHeightConstraint.constant = height
+                    self.view.layoutIfNeeded()
+                }
+                viewDidLayoutSubviews()
             })
    
         }
      
     }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -63,8 +70,6 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    
-
 
 
 }
