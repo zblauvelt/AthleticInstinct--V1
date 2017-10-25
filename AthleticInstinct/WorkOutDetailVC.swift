@@ -37,9 +37,12 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 self.tableView.reloadData()
                 
                 //Adjusting table height based on rows
+                
+
+                
                  func viewDidLayoutSubviews() {
                     super.viewDidLayoutSubviews()
-                    let height = min(self.view.bounds.size.height, self.tableView.contentSize.height)
+                    let height = CGFloat(self.exerciseDetail.count) * CGFloat(75)
                     self.tableViewHeightConstraint.constant = height
                     self.view.layoutIfNeeded()
                 }
@@ -52,6 +55,10 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
