@@ -14,6 +14,9 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var dynamicView: UIView!
+    @IBOutlet var topView: UIView!
+    
     
     var workOutSelectedKey: String!
     var exerciseDetail = [ExerciseDetail]()
@@ -42,8 +45,10 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 
                  func viewDidLayoutSubviews() {
                     super.viewDidLayoutSubviews()
-                    let height = CGFloat(self.exerciseDetail.count) * CGFloat(75)
-                    self.tableViewHeightConstraint.constant = height
+                    let tvHeight = CGFloat(self.exerciseDetail.count) * CGFloat(75)
+                    self.tableViewHeightConstraint.constant = tvHeight
+                   
+                    
                     self.view.layoutIfNeeded()
                 }
                 viewDidLayoutSubviews()
