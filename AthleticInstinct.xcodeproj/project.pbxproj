@@ -27,6 +27,7 @@
 		14B39B8D1F7C758C004636E7 /* FancyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B8C1F7C758C004636E7 /* FancyButton.swift */; };
 		14B39B901F7C75E3004636E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B8F1F7C75E3004636E7 /* Constants.swift */; };
 		14B39B931F7C790B004636E7 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B921F7C790B004636E7 /* SignInVC.swift */; };
+		14E259251FA16A850096859A /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E259241FA16A850096859A /* OvalButton.swift */; };
 		26EF7B0AE79FD5F53DD530B8 /* Pods_AthleticInstinct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9148D971077EB57066D2B588 /* Pods_AthleticInstinct.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		14B39B8C1F7C758C004636E7 /* FancyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyButton.swift; sourceTree = "<group>"; };
 		14B39B8F1F7C75E3004636E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		14B39B921F7C790B004636E7 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		14E259241FA16A850096859A /* OvalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
 		241CBD9011E2D272A9A0CB66 /* Pods-AthleticInstinct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.release.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.release.xcconfig"; sourceTree = "<group>"; };
 		9148D971077EB57066D2B588 /* Pods_AthleticInstinct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticInstinct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 			children = (
 				14B39B8C1F7C758C004636E7 /* FancyButton.swift */,
 				140B480E1F8BADE300432B17 /* RoundButton.swift */,
+				14E259241FA16A850096859A /* OvalButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				140B480F1F8BADE300432B17 /* RoundButton.swift in Sources */,
 				140B47FF1F83254100432B17 /* CategoryCell.swift in Sources */,
 				14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */,
+				14E259251FA16A850096859A /* OvalButton.swift in Sources */,
 				14B39B901F7C75E3004636E7 /* Constants.swift in Sources */,
 				140B480B1F897FC500432B17 /* CategoryDetails.swift in Sources */,
 				14B39B931F7C790B004636E7 /* SignInVC.swift in Sources */,
