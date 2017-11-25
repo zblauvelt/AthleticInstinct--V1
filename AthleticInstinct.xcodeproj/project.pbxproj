@@ -18,6 +18,7 @@
 		140B48111F8BBB3900432B17 /* WorkOutDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */; };
 		140B48131F8BC2AD00432B17 /* exerciseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48121F8BC2AD00432B17 /* exerciseDetail.swift */; };
 		140B48151F8BC88E00432B17 /* WorkOutDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48141F8BC88E00432B17 /* WorkOutDetailCell.swift */; };
+		148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148CFD331FB142630083439C /* WorkOutVideoVC.swift */; };
 		14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B771F79C50F004636E7 /* AppDelegate.swift */; };
 		14B39B7A1F79C50F004636E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B791F79C50F004636E7 /* ViewController.swift */; };
 		14B39B7D1F79C50F004636E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B39B7B1F79C50F004636E7 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutDetailVC.swift; sourceTree = "<group>"; };
 		140B48121F8BC2AD00432B17 /* exerciseDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = exerciseDetail.swift; sourceTree = "<group>"; };
 		140B48141F8BC88E00432B17 /* WorkOutDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutDetailCell.swift; sourceTree = "<group>"; };
+		148CFD331FB142630083439C /* WorkOutVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutVideoVC.swift; sourceTree = "<group>"; };
 		14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.debug.xcconfig"; sourceTree = "<group>"; };
 		14B39B741F79C50F004636E7 /* AthleticInstinct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticInstinct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B39B771F79C50F004636E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				140B480C1F89842A00432B17 /* WorkOutListCell.swift */,
 				140B48101F8BBB3900432B17 /* WorkOutDetailVC.swift */,
 				140B48141F8BC88E00432B17 /* WorkOutDetailCell.swift */,
+				148CFD331FB142630083439C /* WorkOutVideoVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */,
 				140B48151F8BC88E00432B17 /* WorkOutDetailCell.swift in Sources */,
 				140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */,
 				140B48131F8BC2AD00432B17 /* exerciseDetail.swift in Sources */,

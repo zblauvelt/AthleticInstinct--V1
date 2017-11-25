@@ -13,12 +13,20 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var workoutNameLbl: UILabel!
     
+    @IBOutlet weak var coachLbl: UILabel!
     @IBOutlet weak var dynamicView: UIView!
     @IBOutlet var topView: UIView!
+    @IBOutlet weak var levelLbl: UILabel!
+    @IBOutlet weak var durationLbl: UILabel!
     
     
     var workOutSelectedKey: String!
+    var workOutName: String!
+    var level: String!
+    var duration: String!
+    var coach: String!
     var exerciseDetail = [ExerciseDetail]()
     
 
@@ -39,10 +47,14 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
                 self.tableView.reloadData()
                 
-                //Adjusting table height based on rows
-                
-
-                
+                //MARK: labels
+                self.workoutNameLbl.text = self.workOutName
+                self.levelLbl.text = self.level
+                self.durationLbl.text = self.duration
+                if let coach = self.coach {
+                self.coachLbl.text = "Workout by \(coach)"
+                }
+                //MARK: Adjusting table height based on rows
                  func viewDidLayoutSubviews() {
                     super.viewDidLayoutSubviews()
                     let tvHeight = CGFloat(self.exerciseDetail.count) * CGFloat(75)

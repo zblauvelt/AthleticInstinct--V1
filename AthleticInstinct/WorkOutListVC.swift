@@ -61,6 +61,10 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destinationController = segue.destination as! WorkOutDetailVC
                 destinationController.workOutSelectedKey = categoryDetailWorkOuts[indexPath.row].categoryPickedKey
+                destinationController.workOutName = categoryDetailWorkOuts[indexPath.row].workOutName
+                destinationController.level = categoryDetailWorkOuts[indexPath.row].level
+                destinationController.duration = categoryDetailWorkOuts[indexPath.row].duration
+                destinationController.coach = categoryDetailWorkOuts[indexPath.row].coach
             }
         }
     }

@@ -428,6 +428,9 @@
                                                 <state key="normal" title="Start">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="jMC-9F-zih" kind="show" id="oJP-xO-Lhe"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Ben Higgins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-w5-XVX">
                                                 <rect key="frame" x="10" y="510" width="300" height="25"/>
@@ -528,13 +531,50 @@
                     </view>
                     <size key="freeformSize" width="320" height="1000"/>
                     <connections>
+                        <outlet property="coachLbl" destination="hmm-w5-XVX" id="mdb-s4-uGU"/>
+                        <outlet property="durationLbl" destination="PRJ-Ux-ujS" id="lXp-4W-K1H"/>
+                        <outlet property="levelLbl" destination="Ml9-Y8-Jji" id="q2h-5J-WPL"/>
                         <outlet property="tableView" destination="6Sw-52-0H9" id="2ww-bw-84v"/>
                         <outlet property="tableViewHeightConstraint" destination="mmo-k8-ByE" id="0Nb-UZ-WmD"/>
+                        <outlet property="workoutNameLbl" destination="DSf-xb-3kx" id="Fkv-LL-B5s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COP-9r-3v7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3056.25" y="-95"/>
+            <point key="canvasLocation" x="3107" y="34"/>
+        </scene>
+        <!--Work Out VideoVC-->
+        <scene sceneID="t9i-Q2-3I4">
+            <objects>
+                <viewController id="jMC-9F-zih" customClass="WorkOutVideoVC" customModule="AthleticInstinct" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Isc-r2-wYO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qml-zb-GXz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="twE-Sl-xDB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4cK-aq-v1I">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Qml-zb-GXz" firstAttribute="top" secondItem="4cK-aq-v1I" secondAttribute="bottom" id="Az3-mE-PXt"/>
+                            <constraint firstItem="4cK-aq-v1I" firstAttribute="top" secondItem="Isc-r2-wYO" secondAttribute="bottom" id="Rxy-V7-05z"/>
+                            <constraint firstAttribute="trailing" secondItem="4cK-aq-v1I" secondAttribute="trailing" id="UMG-D3-9gJ"/>
+                            <constraint firstItem="4cK-aq-v1I" firstAttribute="leading" secondItem="twE-Sl-xDB" secondAttribute="leading" id="VJ2-aO-OZi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="videoWebView" destination="4cK-aq-v1I" id="lEn-M4-1cW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0iS-nX-e7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3998" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uf4-gm-yN5">
