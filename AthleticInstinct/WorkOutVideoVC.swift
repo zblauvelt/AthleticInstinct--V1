@@ -23,8 +23,6 @@ class WorkOutVideoVC: UIViewController {
         
        videoWebView.loadRequest(request as URLRequest)
 
-        
-        // Do any additional setup after loading the view.
     }
 
 

@@ -67,6 +67,12 @@ class CategoryTableVC: UITableViewController {
         }
     }
     
-
+    
+    @IBAction func signOutBtnTapped(_ sender: Any) {
+        try! FIRAuth.auth()?.signOut()
+        print("ZACK: Signed out of Firebase Successfully")
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }

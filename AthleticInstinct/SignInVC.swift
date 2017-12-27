@@ -101,5 +101,5 @@ class SignInVC: UIViewController {
         passwordTextField.text = nil
         performSegue(withIdentifier: "goToMainScreen", sender: nil)
     }
-
+    
 }
