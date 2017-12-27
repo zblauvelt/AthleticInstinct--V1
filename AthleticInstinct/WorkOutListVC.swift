@@ -65,6 +65,7 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 destinationController.level = categoryDetailWorkOuts[indexPath.row].level
                 destinationController.duration = categoryDetailWorkOuts[indexPath.row].duration
                 destinationController.coach = categoryDetailWorkOuts[indexPath.row].coach
+                destinationController.videoid = categoryDetailWorkOuts[indexPath.row].videoid
             }
         }
     }

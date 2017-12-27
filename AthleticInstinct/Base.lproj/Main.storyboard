@@ -379,27 +379,30 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-Cj-SXq">
-                                                                    <rect key="frame" x="68" y="25.666666666666671" width="184" height="23.333333333333329"/>
+                                                                    <rect key="frame" x="68" y="25.666666666666671" width="244" height="23.333333333333329"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-dW-0AP">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="38" height="23.333333333333332"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="23.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push ups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-I4-NRr">
-                                                                            <rect key="frame" x="43" y="0.0" width="141" height="23.333333333333332"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push ups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-I4-NRr">
+                                                                            <rect key="frame" x="55.333333333333329" y="0.0" width="188.66666666666669" height="23.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="0cf-I4-NRr" firstAttribute="leading" secondItem="qls-dW-0AP" secondAttribute="trailing" constant="4.9999999999999929" id="ha5-gx-hfM"/>
+                                                                    </constraints>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="lwh-Cj-SXq" firstAttribute="leading" secondItem="pij-NO-r0I" secondAttribute="leadingMargin" constant="60" id="f42-Yp-n85"/>
                                                                 <constraint firstItem="lwh-Cj-SXq" firstAttribute="centerY" secondItem="pij-NO-r0I" secondAttribute="centerY" id="je9-Nf-Set"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="lwh-Cj-SXq" secondAttribute="trailing" constant="60" id="qsF-ni-3Mp"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="lwh-Cj-SXq" secondAttribute="trailing" id="qsF-ni-3Mp"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
@@ -435,7 +438,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="jMC-9F-zih" kind="show" id="oJP-xO-Lhe"/>
+                                                    <segue destination="jMC-9F-zih" kind="show" identifier="goToVideo" id="oJP-xO-Lhe"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Ben Higgins" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmm-w5-XVX">

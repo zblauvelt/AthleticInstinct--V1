@@ -11,13 +11,16 @@ import UIKit
 class WorkOutVideoVC: UIViewController {
 
     @IBOutlet weak var videoWebView: UIWebView!
+    var videoid: String!
+    var fullURL: String!
+    var url = "https://player.vimeo.com/video/"
     
-    var url = "https://player.vimeo.com/video/162294438"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _ = getVideoURL(url: url, id: videoid)
         
-        let requestURL = NSURL(string: url)
+        let requestURL = NSURL(string: fullURL)
         
         let request = NSURLRequest(url: requestURL! as URL)
         
@@ -25,8 +28,13 @@ class WorkOutVideoVC: UIViewController {
 
     }
 
-
-    
+    //get full URL
+    func getVideoURL(url: String, id: String) -> String {
+        if let video = videoid {
+            fullURL = "\(url)\(video)"
+        }
+        return fullURL
+    }
 
 
 }

@@ -27,6 +27,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var level: String!
     var duration: String!
     var coach: String!
+    var videoid: String!
     var exerciseDetail = [ExerciseDetail]()
     
 
@@ -94,7 +95,14 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         }
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToVideo" {
+            //if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! WorkOutVideoVC
+                destinationController.videoid = videoid
+            //}
+        }
+    }
 
 
 }

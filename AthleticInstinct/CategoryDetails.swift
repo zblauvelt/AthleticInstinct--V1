@@ -16,6 +16,7 @@ class CategoryDetails {
     private var _duration: String!
     private var _categoryPickedKey: String!
     private var _coach: String!
+    private var _videoid: String!
     
     var workOutName: String {
         return _workOutName
@@ -41,12 +42,17 @@ class CategoryDetails {
         return _coach
     }
     
+    var videoid: String {
+        return _videoid
+    }
+    
     init(workOutName: String, workOutImage: String, level: String, duration: String, coach: String) {
         self._workOutName = workOutName
         self._WorkOutImage = workOutImage
         self._level = level
         self._duration = duration
         self._coach = coach
+        self._videoid = videoid
     }
     
     init (categoryPickedKey: String, categoryPickedData: Dictionary<String, String>) {
@@ -70,6 +76,10 @@ class CategoryDetails {
         
         if let coach = categoryPickedData["coach"] {
             self._coach = coach
+        }
+        
+        if let video = categoryPickedData["videoid"] {
+            self._videoid = video
         }
     }
     

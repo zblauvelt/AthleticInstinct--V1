@@ -14,6 +14,7 @@ class WorkOutCategory {
     private var _categoryKey: String!
     private var _workOuts: String!
 
+
     var name: String {
         return _name
     }
@@ -29,6 +30,7 @@ class WorkOutCategory {
     var workOuts: String {
         return _workOuts
     }
+    
     
     init(name: String, image: String, workOuts: String) {
         self._name = name
@@ -50,6 +52,8 @@ class WorkOutCategory {
         if let workOuts = categoryData["workOuts"] {
             self._workOuts = workOuts
         }
+        
+
         
     }
     

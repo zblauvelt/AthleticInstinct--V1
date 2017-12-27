@@ -12,7 +12,7 @@ class WorkOutDetailCell: UITableViewCell {
     
     @IBOutlet weak var repsLabel: UILabel!
     @IBOutlet weak var exerciseLabel: UILabel!
-    
+   
 
     var exerciseDetail: ExerciseDetail!
     
