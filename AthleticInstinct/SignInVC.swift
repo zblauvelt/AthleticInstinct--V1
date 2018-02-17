@@ -64,6 +64,27 @@ class SignInVC: UIViewController {
     //MARK: Firebase Email Authentication
     @IBAction func singInTapped(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text {
+            let user = FirebaseAuth()
+            
+            do {
+                try user.createSignInUser(email: email, password: password)
+            } catch FIRAuthError.invalidEmail {
+                showAlert(message: FIRAuthError.invalidEmail.rawValue)
+            } catch FIRAuthError.invalidPassword {
+                showAlert(message: FIRAuthError.invalidPassword.rawValue)
+            } catch FIRAuthError.invalidSignIn {
+                showAlert(message: FIRAuthError.invalidSignIn.rawValue)
+            } catch FIRAuthError.somethingWentWrong {
+                showAlert(message: FIRAuthError.somethingWentWrong.rawValue)
+            } catch let error {
+                print("\(error)")
+            }
+        }
+        
+        
+        
+        
+        /*if let email = emailTextField.text, let password = passwordTextField.text {
             
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
@@ -90,7 +111,17 @@ class SignInVC: UIViewController {
                 }
             })
             
+        }*/
+    }
+    
+    //Alert message for error handling
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "" , message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+            return
         }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
     }
 
     func completeSignIn() {
