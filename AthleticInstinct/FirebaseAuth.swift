@@ -48,8 +48,8 @@ class FirebaseAuth {
     
     ///Creates user for Firebase Auth()
     //MARK: Create FirebaseAuth() User
-    func createSignInUser(email: String, password: String/*topVC: UIViewController*/) throws {
-        //let rootVC = topVC
+    func createSignInUser(email: String, password: String, topVC: UIViewController) throws {
+        let rootVC = topVC
         guard validateEmail(enteredEmail: email) == true else{
             throw FIRAuthError.invalidEmail
         }
@@ -60,23 +60,24 @@ class FirebaseAuth {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 print("ZACK: Email user authenticated with Firebase")
-                //if let user = user {
-                //let userData = ["provider": user.providerID]
-                //self.completeSignIn(id: user.uid, userData: userData)
-                //}
-                //self.completeSignIn()
+                
             } else {
                 FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                     if error != nil {
-                        print("ZACK: Unable to authenticate with Firebase user email")
+                        
+                        let alertController = UIAlertController(title: "Authorization", message: FIRAuthError.invalidSignIn.rawValue, preferredStyle: .alert)
+                        let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: { action in
+                            return
+                        })
+                        
+                        alertController.addAction(tryAgainAction)
+                        rootVC.present(alertController, animated: true, completion: nil)
                     } else {
                         print("ZACK: Successfully authenticated with Firebase")
                         
-                        //if let user = user {
-                        //let userData = ["provider": user.providerID]
-                        //self.completeSignIn(id: user.uid, userData: userData)
-                        //}
-                        //self.completeSignIn()
+                        let athlete = Athlete()
+                        athlete.createAthleteDB(email: email)
+                        
                     }
                 })
             }

@@ -119,7 +119,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="OPC-bo-pOP" id="Hpx-EF-X31"/>
                         <outlet property="passwordTextField" destination="1Yl-qx-r7T" id="khH-Ri-MMa"/>
-                        <segue destination="SUa-8u-cJq" kind="show" identifier="goToMainScreen" id="EBJ-pT-qoS"/>
+                        <segue destination="SUa-8u-cJq" kind="show" identifier="goToMainScreen" id="RnW-pb-9go"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
