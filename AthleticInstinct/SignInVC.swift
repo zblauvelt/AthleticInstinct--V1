@@ -67,7 +67,9 @@ class SignInVC: UIViewController {
             let user = FirebaseAuth()
             
             do {
-                try user.createSignInUser(email: email, password: password)
+                try user.createSignInUser(email: email, password: password, topVC: self)
+                emailTextField.text = nil
+                passwordTextField.text = nil
             } catch FIRAuthError.invalidEmail {
                 showAlert(message: FIRAuthError.invalidEmail.rawValue)
             } catch FIRAuthError.invalidPassword {
@@ -80,38 +82,6 @@ class SignInVC: UIViewController {
                 print("\(error)")
             }
         }
-        
-        
-        
-        
-        /*if let email = emailTextField.text, let password = passwordTextField.text {
-            
-            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-                if error == nil {
-                    print("ZACK: Email user authenticated with Firebase")
-                    //if let user = user {
-                        //let userData = ["provider": user.providerID]
-                        //self.completeSignIn(id: user.uid, userData: userData)
-                    //}
-                    self.completeSignIn()
-                } else {
-                    FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-                        if error != nil {
-                            print("ZACK: Unable to authenticate with Firebase user email")
-                        } else {
-                            print("ZACK: Successfully authenticated with Firebase")
-                            
-                            //if let user = user {
-                                //let userData = ["provider": user.providerID]
-                                //self.completeSignIn(id: user.uid, userData: userData)
-                            //}
-                            self.completeSignIn()
-                        }
-                    })
-                }
-            })
-            
-        }*/
     }
     
     //Alert message for error handling
@@ -130,7 +100,7 @@ class SignInVC: UIViewController {
         //print("ZACK: Data saved to keychain \(keychainResult)")
         emailTextField.text = nil
         passwordTextField.text = nil
-        performSegue(withIdentifier: "goToMainScreen", sender: nil)
+        //performSegue(withIdentifier: "goToMainScreen", sender: nil)
     }
     
 }
