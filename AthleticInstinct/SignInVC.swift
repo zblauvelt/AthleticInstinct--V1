@@ -21,6 +21,9 @@ class SignInVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        emailTextField.text = "zachary.blauvelt@gmail.com"
+        passwordTextField.text = "Hockey4842?"
 
     }
     
@@ -36,8 +39,8 @@ class SignInVC: UIViewController {
             } else {
                 print("ZACK: Successfully authentication with Facebook")
                 let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                
                 self.firebaseAuth(credential)
+                
                 
             }
         }
@@ -51,9 +54,23 @@ class SignInVC: UIViewController {
             } else {
                 print("ZACK: Successfully authenticated with Firebase")
                 
-                //if let user = user {
-                    //let userData = ["provider": credential.provider]
-                //}
+                let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
+                
+                graphRequest.start(completionHandler: { (connection, result, error) -> Void in
+                    
+                    if ((error) != nil)
+                    {
+                        print("Error: \(String(describing: error))")
+                    }
+                    else
+                    {
+                        let data:[String:AnyObject] = result as! [String : AnyObject]
+                        print(data["email"]!)
+                        userID = FIRAuth.auth()!.currentUser!.uid
+                        let athlete = Athlete()
+                        athlete.createAthleteDB(email: data["email"] as! String)                    }
+                })
+                
                 self.completeSignIn()
             }
         })
@@ -68,6 +85,7 @@ class SignInVC: UIViewController {
             
             do {
                 try user.createSignInUser(email: email, password: password, topVC: self)
+                //self.completeSignIn()
                 emailTextField.text = nil
                 passwordTextField.text = nil
             } catch FIRAuthError.invalidEmail {
@@ -95,12 +113,12 @@ class SignInVC: UIViewController {
     }
 
     func completeSignIn() {
-        //DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         //let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         //print("ZACK: Data saved to keychain \(keychainResult)")
+        
         emailTextField.text = nil
         passwordTextField.text = nil
-        //performSegue(withIdentifier: "goToMainScreen", sender: nil)
+        performSegue(withIdentifier: "goToMainScreen", sender: nil)
     }
     
 }

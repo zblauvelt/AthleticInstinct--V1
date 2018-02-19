@@ -9,6 +9,8 @@
 import Foundation
 import Firebase
 
+var userID = ""
+
 enum FIRAthleteData: String {
     case email = "email"
 }
@@ -31,11 +33,12 @@ class Athlete {
     
     //Create Athlete in Database
     func createAthleteDB(email: String) {
+        //userID = FIRAuth.auth()!.currentUser!.uid
+        //print(userID)
         let newAthlete = [
             FIRAthleteData.email.rawValue: email
         ]
-        
-        REF_ATHLETE.childByAutoId().setValue(newAthlete)
+        REF_ATHLETE.child(userID).updateChildValues(newAthlete)
         
     }
     
