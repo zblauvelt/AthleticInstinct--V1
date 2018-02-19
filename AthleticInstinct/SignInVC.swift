@@ -66,6 +66,7 @@ class SignInVC: UIViewController {
                     {
                         let data:[String:AnyObject] = result as! [String : AnyObject]
                         print(data["email"]!)
+                        userID = FIRAuth.auth()!.currentUser!.uid
                         let athlete = Athlete()
                         athlete.createAthleteDB(email: data["email"] as! String)                    }
                 })
@@ -84,8 +85,9 @@ class SignInVC: UIViewController {
             
             do {
                 try user.createSignInUser(email: email, password: password, topVC: self)
-                self.completeSignIn()
-                
+                //self.completeSignIn()
+                emailTextField.text = nil
+                passwordTextField.text = nil
             } catch FIRAuthError.invalidEmail {
                 showAlert(message: FIRAuthError.invalidEmail.rawValue)
             } catch FIRAuthError.invalidPassword {
@@ -113,7 +115,7 @@ class SignInVC: UIViewController {
     func completeSignIn() {
         //let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         //print("ZACK: Data saved to keychain \(keychainResult)")
-        userID = FIRAuth.auth()!.currentUser!.uid
+        
         emailTextField.text = nil
         passwordTextField.text = nil
         performSegue(withIdentifier: "goToMainScreen", sender: nil)

@@ -60,6 +60,7 @@ class FirebaseAuth {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 print("ZACK: Email user authenticated with Firebase")
+                userID = FIRAuth.auth()!.currentUser!.uid
                 rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
             } else {
                 FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -75,6 +76,7 @@ class FirebaseAuth {
                     } else {
                         print("ZACK: Successfully authenticated with Firebase")
                         rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
+                        userID = FIRAuth.auth()!.currentUser!.uid
                         let athlete = Athlete()
                         athlete.createAthleteDB(email: email)
                         

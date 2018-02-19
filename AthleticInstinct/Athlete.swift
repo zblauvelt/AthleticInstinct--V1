@@ -33,8 +33,8 @@ class Athlete {
     
     //Create Athlete in Database
     func createAthleteDB(email: String) {
-        userID = FIRAuth.auth()!.currentUser!.uid
-        print(userID)
+        //userID = FIRAuth.auth()!.currentUser!.uid
+        //print(userID)
         let newAthlete = [
             FIRAthleteData.email.rawValue: email
         ]

@@ -13,8 +13,11 @@ class CategoryTableVC: UITableViewController {
     
     var categories = [WorkOutCategory]()
     
+    @IBOutlet weak var addWorkout: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkAdminStatus()
         DataService.ds.REF_CATEGORY.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshot {
@@ -73,6 +76,15 @@ class CategoryTableVC: UITableViewController {
         userID = ""
         print("ZACK: Signed out of Firebase Successfully")
         dismiss(animated: true, completion: nil)
+    }
+    
+    //Check if uid is the admin if so add icon
+    func checkAdminStatus() {
+        if userID == "J5PDq7Q6CDQ7upooaQ1dKn20fb02" {
+            self.navigationItem.rightBarButtonItem = self.addWorkout
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
     
 
