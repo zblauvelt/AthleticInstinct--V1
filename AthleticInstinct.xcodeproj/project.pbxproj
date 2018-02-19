@@ -20,6 +20,7 @@
 		140B48151F8BC88E00432B17 /* WorkOutDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B48141F8BC88E00432B17 /* WorkOutDetailCell.swift */; };
 		141B674E2037BE5A00102B7E /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B674D2037BE5A00102B7E /* FirebaseAuth.swift */; };
 		141B67522037CCAA00102B7E /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B67512037CCAA00102B7E /* Athlete.swift */; };
+		141B6754203B208F00102B7E /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6753203B208E00102B7E /* Favorite.swift */; };
 		144130821FDE0BE500F6F3B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144130811FDE0BE400F6F3B8 /* GoogleService-Info.plist */; };
 		148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148CFD331FB142630083439C /* WorkOutVideoVC.swift */; };
 		14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B771F79C50F004636E7 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		140B48141F8BC88E00432B17 /* WorkOutDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkOutDetailCell.swift; sourceTree = "<group>"; };
 		141B674D2037BE5A00102B7E /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		141B67512037CCAA00102B7E /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		141B6753203B208E00102B7E /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		144130811FDE0BE400F6F3B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		148CFD331FB142630083439C /* WorkOutVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutVideoVC.swift; sourceTree = "<group>"; };
 		14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.debug.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				140B480A1F897FC500432B17 /* CategoryDetails.swift */,
 				140B48121F8BC2AD00432B17 /* exerciseDetail.swift */,
 				141B67512037CCAA00102B7E /* Athlete.swift */,
+				141B6753203B208E00102B7E /* Favorite.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */,
 				14E259251FA16A850096859A /* OvalButton.swift in Sources */,
 				141B674E2037BE5A00102B7E /* FirebaseAuth.swift in Sources */,
+				141B6754203B208F00102B7E /* Favorite.swift in Sources */,
 				141B67522037CCAA00102B7E /* Athlete.swift in Sources */,
 				14B39B901F7C75E3004636E7 /* Constants.swift in Sources */,
 				140B480B1F897FC500432B17 /* CategoryDetails.swift in Sources */,
