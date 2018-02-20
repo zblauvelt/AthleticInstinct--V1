@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 let DB_BASE = FIRDatabase.database().reference()
+let STORAGE_BASE = FIRStorage.storage().reference()
 
 class DataService {
     
@@ -45,6 +46,13 @@ class DataService {
     
     var REF_ALL_WORKOUTS: FIRDatabaseReference {
         return _REF_ALL_WORKOUTS
+    }
+    
+    //Storage References
+    private var _REF_CATEGORY_PICTURES = STORAGE_BASE.child("category-pics")
+    
+    var REF_CATEGORY_PICTURES: FIRStorageReference {
+        return _REF_CATEGORY_PICTURES
     }
     
     

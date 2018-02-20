@@ -18,6 +18,7 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = categoryPicked
         DataService.ds.REF_CATEGORY_WORKOUTS.child(categoryPicked).observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 self.categoryDetailWorkOuts.removeAll()
