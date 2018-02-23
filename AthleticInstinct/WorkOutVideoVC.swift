@@ -18,6 +18,7 @@ class WorkOutVideoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(videoid)
         _ = getVideoURL(url: url, id: videoid)
         
         let requestURL = NSURL(string: fullURL)

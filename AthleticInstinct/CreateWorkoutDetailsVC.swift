@@ -155,4 +155,6 @@ class CreateWorkoutDetailsVC: UIViewController, UIImagePickerControllerDelegate,
         workoutLevelLbl.resignFirstResponder()
         workoutLevelLbl.text = nil
     }
+    
+    
 }

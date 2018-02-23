@@ -182,6 +182,7 @@ class CreateCategoryVC: UIViewController, UIImagePickerControllerDelegate, UINav
         }
     }
 
+    @IBAction func closeNewExercise(segue: UIStoryboardSegue) {}
     
     
 }
