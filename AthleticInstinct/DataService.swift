@@ -50,11 +50,16 @@ class DataService {
     
     //Storage References
     private var _REF_CATEGORY_PICTURES = STORAGE_BASE.child("category-pics")
+    private var _REF_WORKOUT_PICTURES = STORAGE_BASE.child("workout-pics")
+    
     
     var REF_CATEGORY_PICTURES: FIRStorageReference {
         return _REF_CATEGORY_PICTURES
     }
     
+    var REF_WORKOUT_PICTURES: FIRStorageReference {
+        return _REF_WORKOUT_PICTURES
+    }
     
     
     

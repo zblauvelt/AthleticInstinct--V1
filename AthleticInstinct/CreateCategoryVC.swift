@@ -15,6 +15,8 @@ class CreateCategoryVC: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet weak var categoryNameLbl: UITextField!
     @IBOutlet weak var pickCategory: UITextField!
     
+    //name passes through to create ID for segue.
+    var categoryNameKey: String = ""
     var createdCategories = [String]()
     var imagePicker: UIImagePickerController!
     
@@ -47,30 +49,41 @@ class CreateCategoryVC: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBAction func addImage(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
-    
+    //MARK: Save Category
     @IBAction func saveAndContinueTapped(_ sender: Any) {
-        
-        if let newCategory = categoryNameLbl.text {
-            if createdCategories.contains(newCategory) {
-                showAlert(message: CreateCategoryError.duplicateName.rawValue)
-            } else {
-                if let categoryName = categoryNameLbl.text, let categoryImage = categoryImage.image {
-                    let newCategory = WorkOutCategory(name: categoryName)
-                    
-                    do {
-                        try newCategory.createCategory(category: newCategory, image: categoryImage)
-                    } catch CreateCategoryError.invalidCategoryName {
-                        showAlert(message: CreateCategoryError.invalidCategoryName.rawValue)
-                    } catch CreateCategoryError.invalidImage {
-                        showAlert(message: CreateCategoryError.invalidImage.rawValue)
-                    } catch let error {
-                        showAlert(message: "\(error)")
+        if categoryNameLbl.text != "" && pickCategory.text != "" {
+            showAlert(message: "You have entered both an existing category and entered a new one. Please remove one.")
+        } else if pickCategory.text == "" {
+            if let newCategory = categoryNameLbl.text {
+                if createdCategories.contains(newCategory) {
+                    showAlert(message: CreateCategoryError.duplicateName.rawValue)
+                } else {
+                    if let categoryName = categoryNameLbl.text, let categoryImage = categoryImage.image {
+                        let newCategory = WorkOutCategory(name: categoryName)
+                        
+                        do {
+                            try newCategory.createCategory(category: newCategory, image: categoryImage)
+                            categoryNameKey = newCategory.name
+                            self.performSegue(withIdentifier: "addWorkOutDetails", sender: nil)
+                        } catch CreateCategoryError.invalidCategoryName {
+                            showAlert(message: CreateCategoryError.invalidCategoryName.rawValue)
+                        } catch CreateCategoryError.invalidImage {
+                            showAlert(message: CreateCategoryError.invalidImage.rawValue)
+                        } catch let error {
+                            showAlert(message: "\(error)")
+                        }
                     }
                 }
+            } else {
+                showAlert(message: "Oops! Somthing went wrong. Please try again.")
             }
         } else {
-            showAlert(message: CreateCategoryError.invalidCategoryName.rawValue)
+            if let pickCategoryText = pickCategory.text {
+                categoryNameKey = pickCategoryText
+                performSegue(withIdentifier: "addWorkOutDetails", sender: nil)
+            }
         }
+        
     }
     
     func showAlert(message: String) {
@@ -159,6 +172,14 @@ class CreateCategoryVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     @objc func cancelPressed(sender: UIBarButtonItem) {
         pickCategory.resignFirstResponder()
+        pickCategory.text = nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addWorkOutDetails" {
+            let destinationVC = segue.destination as! CreateWorkoutDetailsVC
+            destinationVC.categoryKey = categoryNameKey
+        }
     }
 
     

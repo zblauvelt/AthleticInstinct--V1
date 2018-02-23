@@ -15,6 +15,7 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var categoryPicked: String!
     var categoryDetailWorkOuts = [CategoryDetails]()
+    static var workOutImageCache: NSCache<NSString, UIImage> = NSCache()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +50,19 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let workOutSelected = categoryDetailWorkOuts[indexPath.row]
         let cellIdentifier = "goToWorkOutList"
         
+        // Configure the cell...
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WorkOutListCell {
-            cell.configureCategoryDetailCell(categoryDetail: workOutSelected)
-            return cell
+            if let imageURL = workOutSelected.workOutImage {
+                if let img = WorkOutListVC.workOutImageCache.object(forKey: imageURL as NSString) {
+                    cell.configureCategoryDetailCell(categoryDetail: workOutSelected, img: img)
+                    
+                } else {
+                    cell.configureCategoryDetailCell(categoryDetail: workOutSelected)
+                }
+                return cell
+            } else {
+                return WorkOutListCell()
+            }
         } else {
             return WorkOutListCell()
         }
@@ -67,6 +78,10 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 destinationController.duration = categoryDetailWorkOuts[indexPath.row].duration
                 destinationController.coach = categoryDetailWorkOuts[indexPath.row].coach
                 destinationController.videoid = categoryDetailWorkOuts[indexPath.row].videoid
+                if let image =  categoryDetailWorkOuts[indexPath.row].workOutImage {
+                 destinationController.workoutImageURL = image  
+                }
+                
             }
         }
     }

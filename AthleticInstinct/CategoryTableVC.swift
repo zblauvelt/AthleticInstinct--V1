@@ -22,6 +22,7 @@ class CategoryTableVC: UITableViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         DataService.ds.REF_CATEGORY.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.categories.removeAll()
                 for snap in snapshot {
                     print("SNAP: \(snap)")
                     if let categoryData = snap.value as? Dictionary<String, String> {

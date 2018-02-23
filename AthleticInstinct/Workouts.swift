@@ -26,6 +26,7 @@ enum FIRCategoryData: String {
 class WorkOutCategory {
     private var _name: String!
     var image: String?
+    static var categoryDBKey: String = ""
     private var _categoryKey: String!
 
 
@@ -80,7 +81,9 @@ class WorkOutCategory {
                             FIRCategoryData.categoryName.rawValue: category.name,
                             FIRCategoryData.categoryImage.rawValue: url
                         ]
-                        DataService.ds.REF_CATEGORY.childByAutoId().setValue(category)
+                        let categoryKey = DataService.ds.REF_CATEGORY.childByAutoId()
+                        categoryKey.setValue(category)
+                        
                         
                     }
                 }
