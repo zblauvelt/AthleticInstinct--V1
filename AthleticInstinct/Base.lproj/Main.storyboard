@@ -269,7 +269,7 @@
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAR-PH-1VL">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duration in min" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAR-PH-1VL">
                                         <rect key="frame" x="0.0" y="64" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
@@ -339,7 +339,7 @@
         <!--Exercises-->
         <scene sceneID="hqS-iy-u0j">
             <objects>
-                <viewController id="eOK-Ea-8Yr" sceneMemberID="viewController">
+                <viewController id="eOK-Ea-8Yr" customClass="CreateExercisesVC" customModule="AthleticInstinct" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g6V-YP-etu"/>
                         <viewControllerLayoutGuide type="bottom" id="zBB-1b-FyH"/>
@@ -347,15 +347,108 @@
                     <view key="view" contentMode="scaleToFill" id="i6C-n2-neJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="luj-QO-Pay">
+                                <rect key="frame" x="28" y="72" width="358" height="37"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="reps/time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qfc-WI-Bjv">
+                                        <rect key="frame" x="0.0" y="0.0" width="112.66666666666667" height="37"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Exercise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SQZ-oy-8h3">
+                                        <rect key="frame" x="122.66666666666666" y="0.0" width="112.66666666666666" height="37"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wli-P7-G1t">
+                                        <rect key="frame" x="245.33333333333329" y="0.0" width="112.66666666666666" height="37"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addExerciseTapped:" destination="eOK-Ea-8Yr" eventType="touchUpInside" id="med-tl-gd7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kBE-1S-Erb">
+                                <rect key="frame" x="0.0" y="117" width="414" height="619"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addExerciseCell" id="BxP-F3-f8V" customClass="CreateExerciseCell" customModule="AthleticInstinct" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BxP-F3-f8V" id="N12-Th-H3W">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="uGX-WX-nRM">
+                                                    <rect key="frame" x="57" y="9.0000000000000018" width="300" height="24.666666666666671"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM6-AC-I2j">
+                                                            <rect key="frame" x="0.0" y="0.0" width="144" height="24.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burpees" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vs-sX-hhK">
+                                                            <rect key="frame" x="156" y="0.0" width="144" height="24.666666666666668"/>
+                                                            <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="xIf-0q-mAV"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uGX-WX-nRM" firstAttribute="centerY" secondItem="N12-Th-H3W" secondAttribute="centerY" id="DQq-jP-4pv"/>
+                                                <constraint firstItem="uGX-WX-nRM" firstAttribute="centerX" secondItem="N12-Th-H3W" secondAttribute="centerX" id="HNL-Bh-YDn"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellExerciseLbl" destination="0Vs-sX-hhK" id="PhN-iZ-nSx"/>
+                                            <outlet property="cellRepsLbl" destination="GM6-AC-I2j" id="bXd-5l-bN1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="eOK-Ea-8Yr" id="Liu-Pk-46m"/>
+                                    <outlet property="delegate" destination="eOK-Ea-8Yr" id="LeA-yF-gVh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="luj-QO-Pay" secondAttribute="trailing" constant="8" id="4d3-7s-Vir"/>
+                            <constraint firstAttribute="trailing" secondItem="kBE-1S-Erb" secondAttribute="trailing" id="56H-aN-FZl"/>
+                            <constraint firstItem="luj-QO-Pay" firstAttribute="leading" secondItem="i6C-n2-neJ" secondAttribute="leadingMargin" constant="8" id="UOg-6m-S22"/>
+                            <constraint firstItem="kBE-1S-Erb" firstAttribute="top" secondItem="luj-QO-Pay" secondAttribute="bottom" constant="8" id="XmL-eH-qYA"/>
+                            <constraint firstItem="luj-QO-Pay" firstAttribute="top" secondItem="g6V-YP-etu" secondAttribute="bottom" constant="8" id="dpl-om-lAH"/>
+                            <constraint firstItem="zBB-1b-FyH" firstAttribute="top" secondItem="kBE-1S-Erb" secondAttribute="bottom" id="y4d-Fb-p2G"/>
+                            <constraint firstItem="kBE-1S-Erb" firstAttribute="leading" secondItem="i6C-n2-neJ" secondAttribute="leading" id="yDV-md-K8w"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Exercises" id="bsR-sv-Nv4">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="00s-fP-sjd"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="00s-fP-sjd">
+                            <connections>
+                                <action selector="saveExercisesTapped:" destination="eOK-Ea-8Yr" id="Iaj-F6-zO9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="exerciseLbl" destination="SQZ-oy-8h3" id="9cf-mw-ADQ"/>
+                        <outlet property="repsLbl" destination="qfc-WI-Bjv" id="4t9-FP-gdy"/>
+                        <outlet property="tableView" destination="kBE-1S-Erb" id="aaq-Mh-bHx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XqG-Ov-5LQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4039" y="-670"/>
+            <point key="canvasLocation" x="4037.68115942029" y="-670.10869565217399"/>
         </scene>
         <!--Category-->
         <scene sceneID="tVV-X2-ylj">

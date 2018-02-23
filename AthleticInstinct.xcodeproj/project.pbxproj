@@ -26,6 +26,8 @@
 		141B675C203B634900102B7E /* FavoriteWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B675B203B634900102B7E /* FavoriteWorkoutCell.swift */; };
 		141B675E203B89E600102B7E /* CreateCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B675D203B89E600102B7E /* CreateCategoryVC.swift */; };
 		141B6760203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B675F203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift */; };
+		141B6762203FBB8600102B7E /* CreateExercisesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6761203FBB8600102B7E /* CreateExercisesVC.swift */; };
+		141B6764203FBFEC00102B7E /* CreateExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141B6763203FBFEC00102B7E /* CreateExerciseCell.swift */; };
 		144130821FDE0BE500F6F3B8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 144130811FDE0BE400F6F3B8 /* GoogleService-Info.plist */; };
 		148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148CFD331FB142630083439C /* WorkOutVideoVC.swift */; };
 		14B39B781F79C50F004636E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B771F79C50F004636E7 /* AppDelegate.swift */; };
@@ -60,6 +62,8 @@
 		141B675B203B634900102B7E /* FavoriteWorkoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteWorkoutCell.swift; sourceTree = "<group>"; };
 		141B675D203B89E600102B7E /* CreateCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryVC.swift; sourceTree = "<group>"; };
 		141B675F203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWorkoutDetailsVC.swift; sourceTree = "<group>"; };
+		141B6761203FBB8600102B7E /* CreateExercisesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExercisesVC.swift; sourceTree = "<group>"; };
+		141B6763203FBFEC00102B7E /* CreateExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateExerciseCell.swift; sourceTree = "<group>"; };
 		144130811FDE0BE400F6F3B8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		148CFD331FB142630083439C /* WorkOutVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkOutVideoVC.swift; sourceTree = "<group>"; };
 		14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.debug.xcconfig"; sourceTree = "<group>"; };
@@ -191,6 +195,8 @@
 				141B675B203B634900102B7E /* FavoriteWorkoutCell.swift */,
 				141B675D203B89E600102B7E /* CreateCategoryVC.swift */,
 				141B675F203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift */,
+				141B6761203FBB8600102B7E /* CreateExercisesVC.swift */,
+				141B6763203FBFEC00102B7E /* CreateExerciseCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */,
 				140B48151F8BC88E00432B17 /* WorkOutDetailCell.swift in Sources */,
 				140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */,
+				141B6762203FBB8600102B7E /* CreateExercisesVC.swift in Sources */,
 				141B6760203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift in Sources */,
 				140B48131F8BC2AD00432B17 /* exerciseDetail.swift in Sources */,
 				140B48051F845BAC00432B17 /* DataService.swift in Sources */,
@@ -347,6 +354,7 @@
 				141B6758203B4DF400102B7E /* TabBarController.swift in Sources */,
 				14E259251FA16A850096859A /* OvalButton.swift in Sources */,
 				141B675C203B634900102B7E /* FavoriteWorkoutCell.swift in Sources */,
+				141B6764203FBFEC00102B7E /* CreateExerciseCell.swift in Sources */,
 				141B674E2037BE5A00102B7E /* FirebaseAuth.swift in Sources */,
 				141B6754203B208F00102B7E /* Favorite.swift in Sources */,
 				141B67522037CCAA00102B7E /* Athlete.swift in Sources */,

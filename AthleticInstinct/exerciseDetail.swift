@@ -8,10 +8,16 @@
 
 import Foundation
 
+enum CreateExerciseError: String, Error {
+    case invalidReps = "Please provide a rep count or time."
+    case invalidExercise = "Please provide a valid exercise."
+}
+
 class ExerciseDetail {
     private var _workOutKey: String!
     private var _reps: String!
     private var _exercise: String!
+    static var exerciseArray = [ExerciseDetail]()
     
     var workOutKey: String {
         return _workOutKey
@@ -40,5 +46,17 @@ class ExerciseDetail {
         if let exercise = exerciseData["exercise"] {
             self._exercise = exercise
         }
+    }
+    
+    func addExercise(newExercise: ExerciseDetail) throws {
+        guard reps != "" else {
+            throw CreateExerciseError.invalidReps
+        }
+        
+        guard exercise != "" else {
+            throw CreateExerciseError.invalidExercise
+        }
+        
+        ExerciseDetail.exerciseArray.append(newExercise)
     }
 }

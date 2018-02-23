@@ -107,6 +107,9 @@ class FavoriteTableVC: UITableViewController {
                 destinationController.duration = favoriteWorkouts[indexPath.row].duration
                 destinationController.coach = favoriteWorkouts[indexPath.row].coach
                 destinationController.videoid = favoriteWorkouts[indexPath.row].videoid
+                if let image =  favoriteWorkouts[indexPath.row].workOutImage {
+                    destinationController.workoutImageURL = image
+                }
             }
         }
     }

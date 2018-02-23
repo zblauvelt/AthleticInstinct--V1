@@ -37,6 +37,7 @@ class CategoryDetails {
     private var _categoryPickedKey: String!
     private var _coach: String!
     private var _videoid: String!
+    static let globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
     
     var workOutName: String {
         return _workOutName
@@ -141,9 +142,9 @@ class CategoryDetails {
                             FIRWorkOutDetailData.image.rawValue: url
                         ]
                         
-                        let globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
-                        globalWorkout.setValue(workOutDict)
-                        DataService.ds.REF_CATEGORY_WORKOUTS.child(categoryKey).child(globalWorkout.key).setValue(workOutDict)
+                        
+                        CategoryDetails.globalWorkout.setValue(workOutDict)
+                        DataService.ds.REF_CATEGORY_WORKOUTS.child(categoryKey).child(CategoryDetails.globalWorkout.key).setValue(workOutDict)
                         
                         
                     }
