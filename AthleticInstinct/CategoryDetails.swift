@@ -7,11 +7,31 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
 
+
+enum CreateWorkOutDetailsError: String, Error {
+    case invalidName = "Please provide a valid name."
+    case invalidLevel = "Please provide a valid level."
+    case invalidDuration = "Please provide a valid duration of work out."
+    case invalidCoach = "Please provide a valid coach."
+    case invalidImage = "Please provide a valid image."
+    case invalidVideoID = "Please provide a valid vimeo id. You can find this by opening your Vimeo video and finding the string of numbers in the url."
+}
+
+enum FIRWorkOutDetailData: String {
+    case name = "name"
+    case level = "level"
+    case duration = "duration"
+    case coach = "coach"
+    case videoid = "videoid"
+    case image = "image"
+}
   //Model for List of workouts in a category Selected (WorkOutListVC)
 class CategoryDetails {
     private var _workOutName: String!
-    private var _WorkOutImage: String!
+    var workOutImage: String?
     private var _level: String!
     private var _duration: String!
     private var _categoryPickedKey: String!
@@ -20,10 +40,6 @@ class CategoryDetails {
     
     var workOutName: String {
         return _workOutName
-    }
-    
-    var workOutImage: String {
-        return _WorkOutImage
     }
     
     var level: String {
@@ -46,9 +62,9 @@ class CategoryDetails {
         return _videoid
     }
     
-    init(workOutName: String, workOutImage: String, level: String, duration: String, coach: String) {
+    init(workOutName: String, level: String, duration: String, coach: String, videoid: String) {
         self._workOutName = workOutName
-        self._WorkOutImage = workOutImage
+        
         self._level = level
         self._duration = duration
         self._coach = coach
@@ -63,7 +79,7 @@ class CategoryDetails {
         }
         
         if let workOutImage = categoryPickedData["image"] {
-            self._WorkOutImage = workOutImage
+            self.workOutImage = workOutImage
         }
         
         if let level = categoryPickedData["level"] {
@@ -82,6 +98,80 @@ class CategoryDetails {
             self._videoid = video
         }
     }
+    
+    
+    func createWorkOutDB(workOut: CategoryDetails, image: UIImage, categoryKey: String) throws {
+        guard workOut.workOutName != "" else {
+            throw CreateWorkOutDetailsError.invalidName
+        }
+        guard workOut.level != "" else {
+            throw CreateWorkOutDetailsError.invalidLevel
+        }
+        guard workOut.duration != "" else {
+            throw CreateWorkOutDetailsError.invalidDuration
+        }
+        guard workOut.coach != "" else {
+            throw CreateWorkOutDetailsError.invalidCoach
+        }
+        guard workOut.videoid != "" else {
+            throw CreateWorkOutDetailsError.invalidVideoID
+        }
+        
+        let img = image
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            DataService.ds.REF_WORKOUT_PICTURES.child(imgUid).put(imgData, metadata: metaData) { (metaData, error) in
+                if error != nil {
+                    print("ZACK: Unable to upload to Firebase Storage")
+                } else {
+                    print("ZACK: Successfully uploaded image")
+                    let downloadURL = metaData?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        let workOutDict: Dictionary<String, String> = [
+                            FIRWorkOutDetailData.name.rawValue: workOut.workOutName,
+                            FIRWorkOutDetailData.level.rawValue: workOut.level,
+                            FIRWorkOutDetailData.duration.rawValue: workOut.duration,
+                            FIRWorkOutDetailData.coach.rawValue: workOut.coach,
+                            FIRWorkOutDetailData.videoid.rawValue: workOut.videoid,
+                            FIRWorkOutDetailData.image.rawValue: url
+                        ]
+                        
+                        let globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
+                        globalWorkout.setValue(workOutDict)
+                        DataService.ds.REF_CATEGORY_WORKOUTS.child(categoryKey).child(globalWorkout.key).setValue(workOutDict)
+                        
+                        
+                    }
+                }
+                
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
 

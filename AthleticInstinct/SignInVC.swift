@@ -22,8 +22,8 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailTextField.text = "zachary.blauvelt@gmail.com"
-        passwordTextField.text = "Hockey4842?"
+        emailTextField.text = "info@athleticinstinct.com"
+        passwordTextField.text = "Kettlebell1?"
 
     }
     

@@ -12,14 +12,17 @@ import Firebase
 class CategoryTableVC: UITableViewController {
     
     var categories = [WorkOutCategory]()
+    static var categoryImageCache: NSCache<NSString, UIImage> = NSCache()
     
     @IBOutlet weak var addWorkout: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkAdminStatus()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         DataService.ds.REF_CATEGORY.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                self.categories.removeAll()
                 for snap in snapshot {
                     print("SNAP: \(snap)")
                     if let categoryData = snap.value as? Dictionary<String, String> {
@@ -53,9 +56,19 @@ class CategoryTableVC: UITableViewController {
         
         let cellIdentifier = "CategoryCell"
         
+        //Configure cell
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CategoryCell {
-            cell.configureCell(category: category)
-            return cell
+            if let imageURL = category.image {
+                if let img = CategoryTableVC.categoryImageCache.object(forKey: imageURL as NSString) {
+                    cell.configureCell(category: category, img: img)
+                    
+                } else {
+                    cell.configureCell(category: category)
+                }
+                return cell
+            } else {
+                return CategoryCell()
+            }
         } else {
             return CategoryCell()
         }
@@ -86,6 +99,8 @@ class CategoryTableVC: UITableViewController {
             self.navigationItem.rightBarButtonItem = nil
         }
     }
+    
+    @IBAction func cancel(segue: UIStoryboardSegue) {}
     
 
 }

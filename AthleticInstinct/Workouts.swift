@@ -7,35 +7,41 @@
 //
 
 import Foundation
+import UIKit
+import Firebase
+
+enum CreateCategoryError: String, Error {
+    case invalidCategoryName = "Please provide a valid category name."
+    case invalidImage = "Please provide a valid image."
+    case duplicateName = "This category name already exists. Please create a unique name."
+}
+
+enum FIRCategoryData: String {
+    case categoryName = "name"
+    case categoryImage = "image"
+}
+
+
 //Model for Category tableView
 class WorkOutCategory {
     private var _name: String!
-    private var _image: String!
+    var image: String?
+    static var categoryDBKey: String = ""
     private var _categoryKey: String!
-    private var _workOuts: String!
 
 
     var name: String {
         return _name
     }
     
-    var image: String {
-        return _image
-    }
-    
     var categoryKey: String {
         return _categoryKey
     }
-    
-    var workOuts: String {
-        return _workOuts
-    }
+
     
     
-    init(name: String, image: String, workOuts: String) {
+    init(name: String) {
         self._name = name
-        self._image = image
-        self._workOuts = workOuts
     }
     
     init(CategoryName: String, categoryData: Dictionary<String, String>) {
@@ -46,17 +52,45 @@ class WorkOutCategory {
         }
         
         if let image = categoryData["image"] {
-            self._image = image
+            self.image = image
         }
-        
-        if let workOuts = categoryData["workOuts"] {
-            self._workOuts = workOuts
-        }
-        
-
         
     }
     
+    func createCategory(category: WorkOutCategory, image: UIImage) throws {
+        guard category.name != "" else {
+            throw CreateCategoryError.invalidCategoryName
+        }
+        
+        let img = image
+        
+        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imgUid = NSUUID().uuidString
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            DataService.ds.REF_CATEGORY_PICTURES.child(imgUid).put(imgData, metadata: metaData) { (metaData, error) in
+                if error != nil {
+                    print("ZACK: unable to upload to firebase storage")
+                } else {
+                    print("ZACK: Successfully uploaded image")
+                    let downloadURL = metaData?.downloadURL()?.absoluteString
+                    if let url = downloadURL {
+                        let category: Dictionary<String, String> = [
+                            FIRCategoryData.categoryName.rawValue: category.name,
+                            FIRCategoryData.categoryImage.rawValue: url
+                        ]
+                        let categoryKey = DataService.ds.REF_CATEGORY.childByAutoId()
+                        categoryKey.setValue(category)
+                        
+                        
+                    }
+                }
+                
+            }
+        }
+    }
 }
     
   

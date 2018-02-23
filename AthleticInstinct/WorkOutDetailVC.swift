@@ -14,6 +14,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var workoutNameLbl: UILabel!
+    @IBOutlet weak var workoutImage: UIImageView!
     
     @IBOutlet weak var coachLbl: UILabel!
     @IBOutlet weak var dynamicView: UIView!
@@ -21,6 +22,8 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var levelLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var favoriteButtonImage: UIImageView!
+    var workoutImageURL = ""
+    var workoutImageCache: NSCache<NSString, UIImage> = NSCache()
     
     
     var workOutSelectedKey: String!
@@ -34,6 +37,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getImageFromFirebase()
         getFavoriteWorkouts()
         if let workoutSelected = workOutSelectedKey {
             DataService.ds.REF_EXERCISES.child(workoutSelected).observe(.value, with: { (snapshot) in
@@ -70,6 +74,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
             })
    
         }
+        getImageFromFirebase()
     }
 
     
@@ -140,6 +145,33 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 }
             }
         })
+        
+    }
+    
+    //MARK: Get image from Firebase
+    func getImageFromFirebase(img: UIImage? = nil) {
+        if img != nil {
+            self.workoutImage.image = img
+        } else {
+            print("ZACK: URL: \(self.workoutImageURL)")
+            let imageURL = self.workoutImageURL
+            
+            let ref = FIRStorage.storage().reference(forURL: imageURL)
+            ref.data(withMaxSize: 2 * 1024 * 1024, completion:  { (data, error) in
+                if error != nil {
+                    print("ZACK: Unable to download image from Firebase")
+                    self.workoutImage.image = #imageLiteral(resourceName: "SignInBackground")
+                } else {
+                    print("ZACK: Successfully downloaded image.")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.workoutImage.image = img
+                            //self.workoutImageCache.setObject(img, forKey: imageURL as NSString)
+                        }
+                    }
+                }
+            })
+        }
         
     }
     

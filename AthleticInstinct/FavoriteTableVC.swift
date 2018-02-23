@@ -13,6 +13,7 @@ class FavoriteTableVC: UITableViewController {
     
     var favoriteWorkouts = [CategoryDetails]()
     var favoriteWorkoutKey = [String]()
+    static var favoriteWorkOutImageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +39,19 @@ class FavoriteTableVC: UITableViewController {
         let favoriteWorkout = favoriteWorkouts[indexPath.row]
         let cellIdentifier = "favoriteCell"
         
+        //Configure cell
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? FavoriteWorkoutCell {
-            cell.configureCategoryDetailCell(categoryDetail: favoriteWorkout)
-            return cell
+            if let imageURL = favoriteWorkout.workOutImage {
+                if let img = FavoriteTableVC.favoriteWorkOutImageCache.object(forKey: imageURL as NSString) {
+                    cell.configureCategoryDetailCell(categoryDetail: favoriteWorkout, img: img)
+                    
+                } else {
+                    cell.configureCategoryDetailCell(categoryDetail: favoriteWorkout)
+                }
+                return cell
+            } else {
+                return FavoriteWorkoutCell()
+            }
         } else {
             return FavoriteWorkoutCell()
         }
