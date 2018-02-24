@@ -255,7 +255,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Yx1-YL-Njr">
-                                <rect key="frame" x="57" y="389" width="300" height="158"/>
+                                <rect key="frame" x="57" y="389" width="300" height="190"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Workout Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ShH-6w-k8a">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -283,6 +283,12 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Video ID" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OMj-JE-gVz">
                                         <rect key="frame" x="0.0" y="128" width="300" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Structure of workout" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1iP-hr-QLU">
+                                        <rect key="frame" x="0.0" y="160" width="300" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -323,6 +329,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="structureLbl" destination="1iP-hr-QLU" id="NEl-j0-8UK"/>
                         <outlet property="workImage" destination="QrG-h1-6HW" id="fn4-xQ-SAq"/>
                         <outlet property="workNameLbl" destination="ShH-6w-k8a" id="zC4-2q-KzY"/>
                         <outlet property="workOutDurationLbl" destination="bAR-PH-1VL" id="SRA-iE-gcy"/>
@@ -684,7 +691,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="787"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qk-RT-TIL">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="793"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="822.33333333333337"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignInBackground" translatesAutoresizingMaskIntoConstraints="NO" id="MfW-ct-1tB">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
@@ -723,7 +730,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Sw-52-0H9">
-                                                <rect key="frame" x="0.0" y="580" width="320" height="163"/>
+                                                <rect key="frame" x="0.0" y="609.33333333333337" width="320" height="163"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="163" id="mmo-k8-ByE"/>
@@ -736,17 +743,17 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="74.666666666666671"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-Cj-SXq">
-                                                                    <rect key="frame" x="75" y="25.666666666666671" width="230" height="23.333333333333329"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lwh-Cj-SXq">
+                                                                    <rect key="frame" x="23" y="25.666666666666671" width="274" height="23.333333333333329"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-dW-0AP">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="47.666666666666664" height="23.333333333333332"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qls-dW-0AP">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="134.66666666666666" height="23.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push ups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cf-I4-NRr">
-                                                                            <rect key="frame" x="52.666666666666671" y="0.0" width="177.33333333333331" height="23.333333333333332"/>
+                                                                            <rect key="frame" x="139.66666666666663" y="0.0" width="134.33333333333337" height="23.333333333333332"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -758,9 +765,9 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="lwh-Cj-SXq" firstAttribute="leading" secondItem="pij-NO-r0I" secondAttribute="leadingMargin" constant="60" id="f42-Yp-n85"/>
-                                                                <constraint firstItem="lwh-Cj-SXq" firstAttribute="centerY" secondItem="pij-NO-r0I" secondAttribute="centerY" id="je9-Nf-Set"/>
-                                                                <constraint firstAttribute="trailingMargin" secondItem="lwh-Cj-SXq" secondAttribute="trailing" id="qsF-ni-3Mp"/>
+                                                                <constraint firstItem="lwh-Cj-SXq" firstAttribute="centerY" secondItem="pij-NO-r0I" secondAttribute="centerY" id="Otg-eh-NOG"/>
+                                                                <constraint firstItem="lwh-Cj-SXq" firstAttribute="leading" secondItem="pij-NO-r0I" secondAttribute="leadingMargin" constant="8" id="Rw0-Fi-igb"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="lwh-Cj-SXq" secondAttribute="trailing" constant="8" id="mBS-BV-F03"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
@@ -850,11 +857,18 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The structure for this workout." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gRZ-q0-jPe">
+                                                <rect key="frame" x="8" y="580" width="304" height="19.333333333333371"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="hmm-w5-XVX" firstAttribute="leading" secondItem="8qk-RT-TIL" secondAttribute="leading" constant="10" id="04L-u9-IO7"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ydW-nx-gNe" secondAttribute="trailing" constant="80" id="1Ma-Nd-QSz"/>
+                                            <constraint firstItem="gRZ-q0-jPe" firstAttribute="top" secondItem="ydW-nx-gNe" secondAttribute="bottom" constant="10" id="1qf-V3-8zJ"/>
                                             <constraint firstItem="a5t-o5-ZvN" firstAttribute="top" secondItem="m3j-Wb-1Mo" secondAttribute="bottom" constant="100" id="2Ag-rA-urN"/>
                                             <constraint firstItem="T1L-SL-uxZ" firstAttribute="leading" secondItem="8qk-RT-TIL" secondAttribute="leading" id="6So-KB-v55"/>
                                             <constraint firstAttribute="trailing" secondItem="MfW-ct-1tB" secondAttribute="trailing" id="7mz-We-FGk"/>
@@ -864,7 +878,9 @@
                                             <constraint firstItem="T1L-SL-uxZ" firstAttribute="top" secondItem="8qk-RT-TIL" secondAttribute="top" id="Faf-7w-QQf"/>
                                             <constraint firstItem="MfW-ct-1tB" firstAttribute="top" secondItem="8qk-RT-TIL" secondAttribute="top" id="JXl-uW-xWN"/>
                                             <constraint firstItem="hmm-w5-XVX" firstAttribute="top" secondItem="MfW-ct-1tB" secondAttribute="bottom" constant="10" id="Jgs-cd-c6M"/>
+                                            <constraint firstItem="6Sw-52-0H9" firstAttribute="top" secondItem="gRZ-q0-jPe" secondAttribute="bottom" constant="10" id="LPF-9H-yZW"/>
                                             <constraint firstItem="ydW-nx-gNe" firstAttribute="top" secondItem="hmm-w5-XVX" secondAttribute="bottom" constant="10" id="QBe-Pv-MHT"/>
+                                            <constraint firstAttribute="trailing" secondItem="gRZ-q0-jPe" secondAttribute="trailing" constant="8" id="UYr-ZG-3Rm"/>
                                             <constraint firstItem="DSf-xb-3kx" firstAttribute="top" secondItem="8qk-RT-TIL" secondAttribute="top" constant="90" id="Z2W-3G-euY"/>
                                             <constraint firstItem="a5t-o5-ZvN" firstAttribute="centerX" secondItem="8qk-RT-TIL" secondAttribute="centerX" id="epW-0j-1oC"/>
                                             <constraint firstAttribute="trailing" secondItem="DSf-xb-3kx" secondAttribute="trailing" constant="25" id="fuW-R6-LCL"/>
@@ -874,8 +890,8 @@
                                             <constraint firstItem="DSf-xb-3kx" firstAttribute="leading" secondItem="8qk-RT-TIL" secondAttribute="leading" constant="25" id="qEa-5E-Gma"/>
                                             <constraint firstAttribute="trailing" secondItem="T1L-SL-uxZ" secondAttribute="trailing" id="r2p-0e-Wjr"/>
                                             <constraint firstItem="m3j-Wb-1Mo" firstAttribute="top" secondItem="DSf-xb-3kx" secondAttribute="bottom" constant="35" id="roS-L9-4ql"/>
+                                            <constraint firstItem="gRZ-q0-jPe" firstAttribute="leading" secondItem="8qk-RT-TIL" secondAttribute="leading" constant="8" id="t7T-Zt-dYK"/>
                                             <constraint firstAttribute="bottom" secondItem="6Sw-52-0H9" secondAttribute="bottom" constant="50" id="vDG-39-sgm"/>
-                                            <constraint firstItem="6Sw-52-0H9" firstAttribute="top" secondItem="ydW-nx-gNe" secondAttribute="bottom" constant="10" id="wnA-GW-STf"/>
                                             <constraint firstAttribute="trailing" secondItem="hmm-w5-XVX" secondAttribute="trailing" constant="10" id="xe2-gG-v23"/>
                                         </constraints>
                                     </view>
@@ -908,6 +924,7 @@
                         <outlet property="tableViewHeightConstraint" destination="mmo-k8-ByE" id="0Nb-UZ-WmD"/>
                         <outlet property="workoutImage" destination="MfW-ct-1tB" id="foL-04-6Re"/>
                         <outlet property="workoutNameLbl" destination="DSf-xb-3kx" id="Fkv-LL-B5s"/>
+                        <outlet property="workoutStructureLbl" destination="gRZ-q0-jPe" id="nQY-c7-vHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="COP-9r-3v7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -918,7 +935,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3262" y="100"/>
+            <point key="canvasLocation" x="3260.8695652173915" y="99.456521739130437"/>
         </scene>
         <!--Work Out VideoVC-->
         <scene sceneID="t9i-Q2-3I4">

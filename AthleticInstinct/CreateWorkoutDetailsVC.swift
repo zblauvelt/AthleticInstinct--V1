@@ -16,6 +16,7 @@ class CreateWorkoutDetailsVC: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var workoutCoachLbl: UITextField!
     @IBOutlet weak var workoutVideoidLbl: UITextField!
     @IBOutlet weak var workImage: UIImageView!
+    @IBOutlet weak var structureLbl: UITextField!
     
     
     var imagePicker: UIImagePickerController!
@@ -50,8 +51,8 @@ class CreateWorkoutDetailsVC: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func saveWorkoutDetails(_ sender: Any) {
         if imageSelected {
-            if let name = workNameLbl.text, let level = workoutLevelLbl.text, let duration = workOutDurationLbl.text, let coach = workoutCoachLbl.text, let videoid = workoutVideoidLbl.text, let image = workImage.image {
-                let newWorkout = CategoryDetails(workOutName: name, level: level, duration: duration, coach: coach, videoid: videoid)
+            if let name = workNameLbl.text, let level = workoutLevelLbl.text, let duration = workOutDurationLbl.text, let coach = workoutCoachLbl.text, let videoid = workoutVideoidLbl.text, let workStructure = structureLbl.text, let image = workImage.image {
+                let newWorkout = CategoryDetails(workOutName: name, level: level, duration: duration, coach: coach, videoid: videoid, workoutStructure: workStructure)
                 
                 do {
                     try newWorkout.createWorkOutDB(workOut: newWorkout, image: image, categoryKey: categoryKey)
@@ -75,6 +76,8 @@ class CreateWorkoutDetailsVC: UIViewController, UIImagePickerControllerDelegate,
                     showAlert(message: CreateWorkOutDetailsError.invalidCoach.rawValue)
                 } catch CreateWorkOutDetailsError.invalidImage {
                     showAlert(message: CreateWorkOutDetailsError.invalidImage.rawValue)
+                } catch CreateWorkOutDetailsError.invalidStructure {
+                    showAlert(message: CreateWorkOutDetailsError.invalidStructure.rawValue)
                 } catch let error {
                     print("\(error)")
                 }

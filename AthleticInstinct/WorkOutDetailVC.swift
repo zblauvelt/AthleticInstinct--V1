@@ -22,6 +22,8 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var levelLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var favoriteButtonImage: UIImageView!
+    @IBOutlet weak var workoutStructureLbl: UILabel!
+    
     var workoutImageURL = ""
     var workoutImageCache: NSCache<NSString, UIImage> = NSCache()
     
@@ -32,6 +34,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     var duration: String!
     var coach: String!
     var videoid: String!
+    var workoutStructure: String!
     var exerciseDetail = [ExerciseDetail]()
     var favoriteWorkouts = [String]()
 
@@ -61,6 +64,7 @@ class WorkOutDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
                 if let coach = self.coach {
                 self.coachLbl.text = "Workout by \(coach)"
                 }
+                self.workoutStructureLbl.text = self.workoutStructure
                 //MARK: Adjusting table height based on rows
                  func viewDidLayoutSubviews() {
                     super.viewDidLayoutSubviews()

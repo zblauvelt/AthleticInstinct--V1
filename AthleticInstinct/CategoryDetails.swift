@@ -18,6 +18,7 @@ enum CreateWorkOutDetailsError: String, Error {
     case invalidCoach = "Please provide a valid coach."
     case invalidImage = "Please provide a valid image."
     case invalidVideoID = "Please provide a valid vimeo id. You can find this by opening your Vimeo video and finding the string of numbers in the url."
+    case invalidStructure = "Please provide a valid workout structure."
 }
 
 enum FIRWorkOutDetailData: String {
@@ -27,6 +28,7 @@ enum FIRWorkOutDetailData: String {
     case coach = "coach"
     case videoid = "videoid"
     case image = "image"
+    case structure = "structure"
 }
   //Model for List of workouts in a category Selected (WorkOutListVC)
 class CategoryDetails {
@@ -37,6 +39,7 @@ class CategoryDetails {
     private var _categoryPickedKey: String!
     private var _coach: String!
     private var _videoid: String!
+    private var _workoutStructure: String!
     static let globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
     
     var workOutName: String {
@@ -63,13 +66,18 @@ class CategoryDetails {
         return _videoid
     }
     
-    init(workOutName: String, level: String, duration: String, coach: String, videoid: String) {
+    var workoutStructure: String {
+        return _workoutStructure
+    }
+    
+    init(workOutName: String, level: String, duration: String, coach: String, videoid: String, workoutStructure: String) {
         self._workOutName = workOutName
         
         self._level = level
         self._duration = duration
         self._coach = coach
         self._videoid = videoid
+        self._workoutStructure = workoutStructure
     }
     
     init (categoryPickedKey: String, categoryPickedData: Dictionary<String, String>) {
@@ -98,6 +106,10 @@ class CategoryDetails {
         if let video = categoryPickedData["videoid"] {
             self._videoid = video
         }
+        
+        if let workoutStructure = categoryPickedData["structure"] {
+            self._workoutStructure = workoutStructure
+        }
     }
     
     
@@ -116,6 +128,10 @@ class CategoryDetails {
         }
         guard workOut.videoid != "" else {
             throw CreateWorkOutDetailsError.invalidVideoID
+        }
+        
+        guard workOut.workoutStructure != "" else {
+            throw CreateWorkOutDetailsError.invalidStructure
         }
         
         let img = image
@@ -139,6 +155,7 @@ class CategoryDetails {
                             FIRWorkOutDetailData.duration.rawValue: workOut.duration,
                             FIRWorkOutDetailData.coach.rawValue: workOut.coach,
                             FIRWorkOutDetailData.videoid.rawValue: workOut.videoid,
+                            FIRWorkOutDetailData.structure.rawValue: workOut.workoutStructure,
                             FIRWorkOutDetailData.image.rawValue: url
                         ]
                         
