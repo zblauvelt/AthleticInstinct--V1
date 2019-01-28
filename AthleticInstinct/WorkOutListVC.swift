@@ -78,6 +78,7 @@ class WorkOutListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 destinationController.duration = categoryDetailWorkOuts[indexPath.row].duration
                 destinationController.coach = categoryDetailWorkOuts[indexPath.row].coach
                 destinationController.videoid = categoryDetailWorkOuts[indexPath.row].videoid
+                destinationController.workoutStructure = categoryDetailWorkOuts[indexPath.row].workoutStructure
                 if let image =  categoryDetailWorkOuts[indexPath.row].workOutImage {
                  destinationController.workoutImageURL = image  
                 }
