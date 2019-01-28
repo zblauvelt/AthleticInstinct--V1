@@ -40,7 +40,7 @@ class CategoryDetails {
     private var _coach: String!
     private var _videoid: String!
     private var _workoutStructure: String!
-    static let globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
+    static var globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
     
     var workOutName: String {
         return _workOutName
@@ -136,7 +136,7 @@ class CategoryDetails {
         
         let img = image
         
-        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+        if let imgData = img.jpegData(compressionQuality: 0.2) {
             
             let imgUid = NSUUID().uuidString
             let metaData = FIRStorageMetadata()

@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,12 +20,46 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BenLaunch" translatesAutoresizingMaskIntoConstraints="NO" id="3EZ-n3-2on">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AILogo" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-c3-pel">
+                                <rect key="frame" x="67" y="269.5" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="U9I-Nk-ttt"/>
+                                    <constraint firstAttribute="width" constant="240" id="onH-16-1LE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everyone's an Athlete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsy-KW-r4e">
+                                <rect key="frame" x="67" y="417.5" width="240" height="28"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WHm-c3-pel" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="5Cf-Bd-53T"/>
+                            <constraint firstItem="wsy-KW-r4e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ACi-p4-XJN"/>
+                            <constraint firstAttribute="trailing" secondItem="3EZ-n3-2on" secondAttribute="trailing" id="FLl-rO-pgz"/>
+                            <constraint firstItem="wsy-KW-r4e" firstAttribute="top" secondItem="WHm-c3-pel" secondAttribute="bottom" constant="20" id="G4R-t8-KHW"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="3EZ-n3-2on" secondAttribute="bottom" id="MDN-ju-sUh"/>
+                            <constraint firstItem="3EZ-n3-2on" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="fY4-cc-OAb"/>
+                            <constraint firstItem="wsy-KW-r4e" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gYa-Zl-F0P"/>
+                            <constraint firstItem="wsy-KW-r4e" firstAttribute="width" secondItem="WHm-c3-pel" secondAttribute="width" id="jwQ-hI-NNn"/>
+                            <constraint firstItem="WHm-c3-pel" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tIc-f8-x6i"/>
+                            <constraint firstItem="3EZ-n3-2on" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tLT-A6-L5r"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AILogo" width="173" height="84"/>
+        <image name="BenLaunch" width="339" height="462"/>
+    </resources>
 </document>

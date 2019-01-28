@@ -64,7 +64,7 @@ class WorkOutCategory {
         
         let img = image
         
-        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+        if let imgData = img.jpegData(compressionQuality: 0.2) {
             
             let imgUid = NSUUID().uuidString
             let metaData = FIRStorageMetadata()

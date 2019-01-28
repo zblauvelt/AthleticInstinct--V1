@@ -61,7 +61,7 @@ class DataService {
         return _REF_WORKOUT_PICTURES
     }
     
-    
+    let KEY_UID = "uid"
     
     
     

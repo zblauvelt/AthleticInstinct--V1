@@ -8,12 +8,15 @@
 
 import Foundation
 import Firebase
+import SwiftKeychainWrapper
 
 enum FIRAuthError: String, Error {
     case invalidSignIn = "Email and password do not match. Please try again."
     case invalidEmail = "Please provide a valid email."
-    case invalidPassword = "Passwords must be atleast 6 characters, contain one uppercase letter, and one of the following !&^%$#@()/?"
+    case invalidPassword = "Please provide a valid password"/*"Passwords must be atleast 6 characters, contain one uppercase letter, and one of the following !&^%$#@()/?"*/
     case somethingWentWrong = "Something went wrong! Please try again."
+    case unrecognizableEmail = "We don't recognize this email. Could you have used a different email to sign up?"
+    case foundEmail = "We have sent you an email with instructions on how to reset your password. Thank you!"
 }
 
 class FirebaseAuth {
@@ -25,7 +28,7 @@ class FirebaseAuth {
     }
     
     //checks to make sure user followed password guidelines
-    func validatePassword(text : String) -> Bool{
+   /* func validatePassword(text : String) -> Bool{
         
         let capitalLetterRegEx  = ".*[A-Z]+.*"
         let texttest = NSPredicate(format: "SELF MATCHES %@", capitalLetterRegEx)
@@ -44,7 +47,7 @@ class FirebaseAuth {
         
         return capitalresult && numberresult && specialresult
         
-    }
+    }*/
     
     ///Creates user for Firebase Auth()
     //MARK: Create FirebaseAuth() User
@@ -53,13 +56,17 @@ class FirebaseAuth {
         guard validateEmail(enteredEmail: email) == true else{
             throw FIRAuthError.invalidEmail
         }
-        guard validatePassword(text: password) == true else {
+        guard password != "" else {
             throw FIRAuthError.invalidPassword
         }
         
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 print("ZACK: Email user authenticated with Firebase")
+                if let user = user {
+                    self.completeSignin(id: user.uid)
+                }
+                
                 userID = FIRAuth.auth()!.currentUser!.uid
                 rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
             } else {
@@ -75,8 +82,13 @@ class FirebaseAuth {
                         rootVC.present(alertController, animated: true, completion: nil)
                     } else {
                         print("ZACK: Successfully authenticated with Firebase")
+                        if let user = user {
+                            self.completeSignin(id: user.uid)   
+                        }
+                       
                         rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
                         userID = FIRAuth.auth()!.currentUser!.uid
+                        
                         let athlete = Athlete()
                         athlete.createAthleteDB(email: email)
                         
@@ -88,7 +100,38 @@ class FirebaseAuth {
         
     }
 
+    func sendPasswordReset(email: String, topVC: UIViewController) throws {
+        let rootVC = topVC
+        guard email != "" else {
+            throw FIRAuthError.invalidEmail
+        }
+        
+        FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: { (error) in
+            if error != nil {
+                let alertController = UIAlertController(title: "Authorization", message: FIRAuthError.unrecognizableEmail.rawValue, preferredStyle: .alert)
+                let tryAgainAction = UIAlertAction(title: "Try Again", style: .default, handler: { action in
+                    return
+                })
+                
+                alertController.addAction(tryAgainAction)
+                rootVC.present(alertController, animated: true, completion: nil)
+            } else {
+                let alertController = UIAlertController(title: "Authorization", message: FIRAuthError.foundEmail.rawValue, preferredStyle: .alert)
+                let tryAgainAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+                    topVC.dismiss(animated: true, completion: nil)
+                })
+                
+                alertController.addAction(tryAgainAction)
+                rootVC.present(alertController, animated: true, completion: nil)
+            }
+        })
+    }
 
+    func completeSignin(id: String) {
+        KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("Keywrapper saved \(id)")
+        
+    }
 
 
 }

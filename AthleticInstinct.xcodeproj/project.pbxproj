@@ -39,6 +39,8 @@
 		14B39B901F7C75E3004636E7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B8F1F7C75E3004636E7 /* Constants.swift */; };
 		14B39B931F7C790B004636E7 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B39B921F7C790B004636E7 /* SignInVC.swift */; };
 		14E259251FA16A850096859A /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E259241FA16A850096859A /* OvalButton.swift */; };
+		14EC17BA2159837C002E0B58 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14EC17B92159837C002E0B58 /* AppUtility.swift */; };
+		14FB6D7020DD651200179483 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FB6D6F20DD651200179483 /* ForgotPasswordVC.swift */; };
 		26EF7B0AE79FD5F53DD530B8 /* Pods_AthleticInstinct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9148D971077EB57066D2B588 /* Pods_AthleticInstinct.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		14B39B8F1F7C75E3004636E7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		14B39B921F7C790B004636E7 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		14E259241FA16A850096859A /* OvalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
+		14EC17B92159837C002E0B58 /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
+		14FB6D6F20DD651200179483 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		241CBD9011E2D272A9A0CB66 /* Pods-AthleticInstinct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticInstinct.release.xcconfig"; path = "Pods/Target Support Files/Pods-AthleticInstinct/Pods-AthleticInstinct.release.xcconfig"; sourceTree = "<group>"; };
 		9148D971077EB57066D2B588 /* Pods_AthleticInstinct.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticInstinct.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -176,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				14B39B8F1F7C75E3004636E7 /* Constants.swift */,
+				14EC17B92159837C002E0B58 /* AppUtility.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				141B675F203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift */,
 				141B6761203FBB8600102B7E /* CreateExercisesVC.swift */,
 				141B6763203FBFEC00102B7E /* CreateExerciseCell.swift */,
+				14FB6D6F20DD651200179483 /* ForgotPasswordVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -239,13 +245,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ZackBlauvelt;
 				TargetAttributes = {
 					14B39B731F79C50E004636E7 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = CN9WZU9JFM;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -337,6 +343,8 @@
 			files = (
 				148CFD341FB142630083439C /* WorkOutVideoVC.swift in Sources */,
 				140B48151F8BC88E00432B17 /* WorkOutDetailCell.swift in Sources */,
+				14EC17BA2159837C002E0B58 /* AppUtility.swift in Sources */,
+				14FB6D7020DD651200179483 /* ForgotPasswordVC.swift in Sources */,
 				140B48071F86F9A000432B17 /* WorkOutListVC.swift in Sources */,
 				141B6762203FBB8600102B7E /* CreateExercisesVC.swift in Sources */,
 				141B6760203D1CAE00102B7E /* CreateWorkoutDetailsVC.swift in Sources */,
@@ -402,6 +410,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -409,6 +418,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -458,6 +468,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -465,6 +476,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -498,13 +510,16 @@
 			baseConfigurationReference = 14A9061D91616121EA876195 /* Pods-AthleticInstinct.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN9WZU9JFM;
 				INFOPLIST_FILE = AthleticInstinct/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZackBlauvelt.AthleticInstinct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZackBlauvelt.AthleticInstinct2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -513,13 +528,16 @@
 			baseConfigurationReference = 241CBD9011E2D272A9A0CB66 /* Pods-AthleticInstinct.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CN9WZU9JFM;
 				INFOPLIST_FILE = AthleticInstinct/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ZackBlauvelt.AthleticInstinct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZackBlauvelt.AthleticInstinct2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

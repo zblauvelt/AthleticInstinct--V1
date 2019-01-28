@@ -19,6 +19,7 @@ class CreateExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataS
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        hideKeyboard()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -85,6 +86,11 @@ class CreateExercisesVC: UIViewController, UITableViewDelegate, UITableViewDataS
             DataService.ds.REF_EXERCISES.child(CategoryDetails.globalWorkout.key).childByAutoId().setValue(newWorkout)
         
         }
+        
+        ExerciseDetail.exerciseArray.removeAll()
+        CategoryDetails.globalWorkout = DataService.ds.REF_ALL_WORKOUTS.childByAutoId()
+        self.performSegue(withIdentifier: "closeNewExercise", sender: nil)
+        
     }
     
     

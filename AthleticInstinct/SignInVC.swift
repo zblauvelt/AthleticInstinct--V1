@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import SwiftKeychainWrapper
 
 class SignInVC: UIViewController {
     
@@ -17,15 +18,45 @@ class SignInVC: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    @IBOutlet weak var facebookLogIn: FancyButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        facebookLogIn.isHidden = true
+        hideKeyboard()
         
-        emailTextField.text = "info@athleticinstinct.com"
-        passwordTextField.text = "Kettlebell1?"
-
+        
+        
     }
+    
+   /* override func viewDidAppear(_ animated: Bool) {
+        //print("keychainID: \(KeychainWrapper.standard.string(forKey: KEY_UID))")
+        if let user = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            userID = user
+            print("USERID: \(userID)ID")
+            self.performSegue(withIdentifier: "goToMainScreen", sender: nil)
+         
+        }
+    }*/
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if let keychain = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            print("Got ID: \(KeychainWrapper.standard.string(forKey: KEY_UID))")
+            userID = keychain
+            self.performSegue(withIdentifier: "goToMainScreen", sender: self)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.portrait, andRotateTo: UIInterfaceOrientation.portrait)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        AppDelegate.AppUtility.lockOrientation(UIInterfaceOrientationMask.all)
+        
+    }
+    
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
         
@@ -38,8 +69,8 @@ class SignInVC: UIViewController {
                 print("ZACK: User cancelled Facebook authentication")
             } else {
                 print("ZACK: Successfully authentication with Facebook")
-                let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.firebaseAuth(credential)
+                //let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                //self.firebaseAuth(credential)
                 
                 
             }
@@ -47,7 +78,7 @@ class SignInVC: UIViewController {
     }
     
     
-    func firebaseAuth(_ credential: FIRAuthCredential) {
+    /*func firebaseAuth(_ credential: FIRAuthCredential) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
             if error != nil {
                 print("ZACK: Unable to authenticate with Firebase - \(String(describing: error))")
@@ -75,7 +106,7 @@ class SignInVC: UIViewController {
             }
         })
         
-    }
+    }*/
     
     
     //MARK: Firebase Email Authentication
@@ -112,13 +143,21 @@ class SignInVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-    func completeSignIn() {
-        //let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
-        //print("ZACK: Data saved to keychain \(keychainResult)")
+   /* func completeSignIn(id: String) {
+        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("ZACK: Data saved to keychain \(keychainResult)")
         
         emailTextField.text = nil
         passwordTextField.text = nil
         performSegue(withIdentifier: "goToMainScreen", sender: nil)
+    }*/
+    func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
+    {
+        textField.resignFirstResponder()
+        return true
     }
+    
+    
+    @IBAction func cancel(segue: UIStoryboardSegue) {}
     
 }

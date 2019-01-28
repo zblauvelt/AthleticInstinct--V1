@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftKeychainWrapper
 
 class CategoryTableVC: UITableViewController {
     
@@ -87,6 +88,7 @@ class CategoryTableVC: UITableViewController {
     @IBAction func signOutBtnTapped(_ sender: Any) {
         try! FIRAuth.auth()?.signOut()
         userID = ""
+        KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("ZACK: Signed out of Firebase Successfully")
         dismiss(animated: true, completion: nil)
     }
