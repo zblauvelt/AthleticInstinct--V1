@@ -19,6 +19,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var facebookLogIn: FancyButton!
+    var subscriptionService = SubscriptionService()
     
 
     override func viewDidLoad() {
@@ -30,20 +31,14 @@ class SignInVC: UIViewController {
         
     }
     
-   /* override func viewDidAppear(_ animated: Bool) {
-        //print("keychainID: \(KeychainWrapper.standard.string(forKey: KEY_UID))")
-        if let user = KeychainWrapper.standard.string(forKey: KEY_UID) {
-            userID = user
-            print("USERID: \(userID)ID")
-            self.performSegue(withIdentifier: "goToMainScreen", sender: nil)
-         
-        }
-    }*/
     
     override func viewDidAppear(_ animated: Bool) {
         if let keychain = KeychainWrapper.standard.string(forKey: KEY_UID) {
-            print("Got ID: \(KeychainWrapper.standard.string(forKey: KEY_UID))")
+            //print("Got ID: \(KeychainWrapper.standard.string(forKey: KEY_UID))")
             userID = keychain
+           subscriptionService.checkForSubscription(vc: self)
+           
+            
             self.performSegue(withIdentifier: "goToMainScreen", sender: self)
         }
     }
@@ -69,44 +64,10 @@ class SignInVC: UIViewController {
                 print("ZACK: User cancelled Facebook authentication")
             } else {
                 print("ZACK: Successfully authentication with Facebook")
-                //let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                //self.firebaseAuth(credential)
-                
                 
             }
         }
     }
-    
-    
-    /*func firebaseAuth(_ credential: FIRAuthCredential) {
-        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
-            if error != nil {
-                print("ZACK: Unable to authenticate with Firebase - \(String(describing: error))")
-            } else {
-                print("ZACK: Successfully authenticated with Firebase")
-                
-                let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"first_name,email, picture.type(large)"])
-                
-                graphRequest.start(completionHandler: { (connection, result, error) -> Void in
-                    
-                    if ((error) != nil)
-                    {
-                        print("Error: \(String(describing: error))")
-                    }
-                    else
-                    {
-                        let data:[String:AnyObject] = result as! [String : AnyObject]
-                        print(data["email"]!)
-                        userID = FIRAuth.auth()!.currentUser!.uid
-                        let athlete = Athlete()
-                        athlete.createAthleteDB(email: data["email"] as! String)                    }
-                })
-                
-                self.completeSignIn()
-            }
-        })
-        
-    }*/
     
     
     //MARK: Firebase Email Authentication
@@ -143,14 +104,7 @@ class SignInVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
-   /* func completeSignIn(id: String) {
-        let keychainResult = KeychainWrapper.standard.set(id, forKey: KEY_UID)
-        print("ZACK: Data saved to keychain \(keychainResult)")
-        
-        emailTextField.text = nil
-        passwordTextField.text = nil
-        performSegue(withIdentifier: "goToMainScreen", sender: nil)
-    }*/
+
     func textFieldShouldReturn(textField: UITextField) -> Bool // called when 'return' key pressed. return false to ignore.
     {
         textField.resignFirstResponder()
@@ -158,6 +112,8 @@ class SignInVC: UIViewController {
     }
     
     
-    @IBAction func cancel(segue: UIStoryboardSegue) {}
+    @IBAction func cancel(segue: UIStoryboardSegue) {
+        KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+    }
     
 }

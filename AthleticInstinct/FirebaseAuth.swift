@@ -20,35 +20,16 @@ enum FIRAuthError: String, Error {
 }
 
 class FirebaseAuth {
+    
+    var subscriptionService = SubscriptionService()
+    
     //checks to see if user typed a valid email
     func validateEmail(enteredEmail:String) -> Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: enteredEmail)
     }
-    
-    //checks to make sure user followed password guidelines
-   /* func validatePassword(text : String) -> Bool{
-        
-        let capitalLetterRegEx  = ".*[A-Z]+.*"
-        let texttest = NSPredicate(format: "SELF MATCHES %@", capitalLetterRegEx)
-        let capitalresult = texttest.evaluate(with: text)
-        
-        let numberRegEx  = ".*[0-9]+.*"
-        let texttest1 = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
-        let numberresult = texttest1.evaluate(with: text)
-        print("\(numberresult)")
-        
-        let specialCharacterRegEx  = ".*[!&^%$#@()/?]+.*"
-        let texttest2 = NSPredicate(format:"SELF MATCHES %@", specialCharacterRegEx)
-        
-        let specialresult = texttest2.evaluate(with: text)
-        print("\(specialresult)")
-        
-        return capitalresult && numberresult && specialresult
-        
-    }*/
-    
+
     ///Creates user for Firebase Auth()
     //MARK: Create FirebaseAuth() User
     func createSignInUser(email: String, password: String, topVC: UIViewController) throws {
@@ -66,6 +47,9 @@ class FirebaseAuth {
                 if let user = user {
                     self.completeSignin(id: user.uid)
                 }
+                
+                //Check for Subscription
+               self.subscriptionService.checkForSubscription(vc: rootVC)
                 
                 userID = FIRAuth.auth()!.currentUser!.uid
                 rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
@@ -85,6 +69,9 @@ class FirebaseAuth {
                         if let user = user {
                             self.completeSignin(id: user.uid)   
                         }
+                        
+                        //Check for Subscription
+                        self.subscriptionService.checkForSubscription(vc: rootVC)
                        
                         rootVC.performSegue(withIdentifier: "goToMainScreen", sender: self)
                         userID = FIRAuth.auth()!.currentUser!.uid

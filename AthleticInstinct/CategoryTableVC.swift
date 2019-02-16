@@ -15,10 +15,15 @@ class CategoryTableVC: UITableViewController {
     var categories = [WorkOutCategory]()
     static var categoryImageCache: NSCache<NSString, UIImage> = NSCache()
     
+    
     @IBOutlet weak var addWorkout: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         checkAdminStatus()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         DataService.ds.REF_CATEGORY.observe(.value, with: { (snapshot) in
@@ -36,7 +41,8 @@ class CategoryTableVC: UITableViewController {
             self.tableView.reloadData()
         })
     }
-
+    
+    //Check if user is Subscribed
 
     // MARK: - Table view data source
 
@@ -95,7 +101,7 @@ class CategoryTableVC: UITableViewController {
     
     //Check if uid is the admin if so add icon
     func checkAdminStatus() {
-        if userID == "J5PDq7Q6CDQ7upooaQ1dKn20fb02" {
+        if userID == "T07K2mtYTScVpMrztdSlSo97e8X2" {
             self.navigationItem.rightBarButtonItem = self.addWorkout
         } else {
             self.navigationItem.rightBarButtonItem = nil

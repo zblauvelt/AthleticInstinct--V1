@@ -38,6 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        SubscriptionService.shared.loadSubscriptionOptions()
+        
         //Change time content color
         var preferredStatusBarStyle: UIStatusBarStyle {
             return .lightContent

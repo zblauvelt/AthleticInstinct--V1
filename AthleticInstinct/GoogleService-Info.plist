@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>530387683935-lgsolas9k3f25t0p4enfg18uf9lcijr0.apps.googleusercontent.com</string>
+	<string>273629553861-gfhpo5g65ge0j0ueoetr3rd3nrs30soh.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.530387683935-lgsolas9k3f25t0p4enfg18uf9lcijr0</string>
+	<string>com.googleusercontent.apps.273629553861-gfhpo5g65ge0j0ueoetr3rd3nrs30soh</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCRQadwgw-KLSgOaTEjQ-ApvIGDIztTuf8</string>
+	<string>AIzaSyA4EboZth888evT2sbryQrtsGf4d-IyotU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>530387683935</string>
+	<string>273629553861</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ZackBlauvelt.AthleticInstinct</string>
+	<string>com.ZackBlauvelt.AthleticInstinct2</string>
 	<key>PROJECT_ID</key>
-	<string>athleticinstinct-2f05e</string>
+	<string>aitest-4dc7a</string>
 	<key>STORAGE_BUCKET</key>
-	<string>athleticinstinct-2f05e.appspot.com</string>
+	<string>aitest-4dc7a.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:530387683935:ios:9b83eea891e2d92b</string>
+	<string>1:273629553861:ios:9545236d8a20af40</string>
 	<key>DATABASE_URL</key>
-	<string>https://athleticinstinct-2f05e.firebaseio.com</string>
+	<string>https://aitest-4dc7a.firebaseio.com</string>
 </dict>
 </plist>

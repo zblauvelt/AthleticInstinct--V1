@@ -6,12 +6,12 @@ target 'AthleticInstinct' do
   use_frameworks!
 
   # Pods for AthleticInstinct
-
-pod ‘Firebase/Core’
-pod ‘Firebase/Database’
-pod ‘Firebase/Auth’
-pod ‘Firebase/Storage’
-pod 'FBSDKLoginKit'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Storage'
+pod 'Firebase/Auth'
 pod 'SwiftKeychainWrapper'
+pod 'FBSDKLoginKit'
+
 
 end
